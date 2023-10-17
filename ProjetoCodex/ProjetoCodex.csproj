@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="TelaAcesso.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="imagem de registro login.png" />
+    <None Remove="imagem entrar login.jpg" />
+    <None Remove="imagem fundo cadastro.png" />
+    <None Remove="imagem fundo login.jpeg" />
+    <None Remove="TelaCadastro.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="TelaAcesso.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="imagem de registro login.png" />
+    <Resource Include="imagem entrar login.jpg" />
+    <Resource Include="imagem fundo cadastro.png" />
+    <Resource Include="imagem fundo login.jpeg" />
+    <Resource Include="TelaCadastro.jpg" />
+  </ItemGroup>
+
+</Project>

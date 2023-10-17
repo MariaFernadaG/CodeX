@@ -1,0 +1,16 @@
+﻿<Window x:Class="ProjetoCodex.TelaAcesso2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjetoCodex"
+        mc:Ignorable="d"
+        Title="TelaAcesso2" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Margin="50,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="50,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="266,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="376" Height="88"/>
+        <TextBox x:Name="txtIdade" HorizontalAlignment="Left" Margin="50,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="592,306,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
