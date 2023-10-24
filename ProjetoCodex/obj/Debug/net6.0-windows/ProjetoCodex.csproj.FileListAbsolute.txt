@@ -48,3 +48,31 @@ C:\Users\maria\Downloads\ProjetoCodex\ProjetoCodex\ProjetoCodex\obj\Debug\net6.0
 C:\Users\maria\Downloads\ProjetoCodex\ProjetoCodex\ProjetoCodex\obj\Debug\net6.0-windows\TelaAcesso2.baml
 C:\Users\maria\Downloads\ProjetoCodex\ProjetoCodex\ProjetoCodex\obj\Debug\net6.0-windows\Perfil.g.cs
 C:\Users\maria\Downloads\ProjetoCodex\ProjetoCodex\ProjetoCodex\obj\Debug\net6.0-windows\Perfil.baml
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\bin\Debug\net6.0-windows\ProjetoCodex.exe
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\bin\Debug\net6.0-windows\ProjetoCodex.deps.json
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\bin\Debug\net6.0-windows\ProjetoCodex.runtimeconfig.json
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\bin\Debug\net6.0-windows\ProjetoCodex.dll
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\bin\Debug\net6.0-windows\ProjetoCodex.pdb
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Perfil.g.cs
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\TelaAcesso1.g.cs
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\TelaAcesso2.g.cs
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Window1.g.cs
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex_MarkupCompile.cache
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex_MarkupCompile.lref
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Perfil.baml
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\TelaAcesso1.baml
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\TelaAcesso2.baml
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Window1.baml
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.g.resources
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.AssemblyInfoInputs.cache
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.AssemblyInfo.cs
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.csproj.CoreCompileInputs.cache
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.dll
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\refint\ProjetoCodex.dll
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.pdb
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.genruntimeconfig.cache
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex (2)\ProjetoCodex\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ref\ProjetoCodex.dll

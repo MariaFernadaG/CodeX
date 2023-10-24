@@ -12,84 +12,101 @@ namespace ProjetoCodex.Controller
         public int ID { get; set; }
         public string Nome { get; set; }
         public string Email { get; set; }
-        public int DataDeNascimento { get; set; }
+        public DateTime DataDeNascimento { get; set; }
         public string Bio { get; set; }
         public string Senha { get; set; }
         public int User { get; set; }
-        
-        public static Usuario? UsuarioLogado { get; private set; }
+
+        public static DateTime DataDeNascimentoPadrao = new DateTime(2000, 1, 1);
+
+        public static DateTime CalcularDataNascimento(int idade)
+        {
+            if (idade <= 0)
+            {
+                // Caso a idade seja inválida, retorne a data mínima possível (por exemplo, 1º de janeiro de 1900).
+                return new DateTime(1900, 1, 1);
+            }
+
+            int anoAtual = DateTime.Now.Year;
+            int mesNascimento = 1;
+            int diaNascimento = 1;
+
+            if (DateTime.Now.Month < mesNascimento || (DateTime.Now.Month == mesNascimento && DateTime.Now.Day < diaNascimento))
+            {
+                anoAtual--;
+            }
+
+            int anoNascimento = anoAtual - idade;
+            return new DateTime(anoNascimento, mesNascimento, diaNascimento);
+        }
 
 
-        public static List<Usuario> listausuario = new List<Usuario>() {
-        new Usuario{
-            ID= 0,
-            Nome= "Maria Fernanda Guedes",
-            DataDeNascimento= 20,
-            Email= "Maria@gmail.com",
-            Senha="123"
+        public static Usuario UsuarioLogado { get; private set; }
+
+        public static List<Usuario> listausuario = new List<Usuario>
+        {
+            new Usuario
+            {
+                ID = 0,
+                Nome = "Maria Fernanda Guedes",
+                DataDeNascimento = new DateTime(2003, 1, 1),  // Use a data de nascimento correta
+                Email = "Maria@gmail.com",
+                Senha = "123"
+
             },
-        new Usuario{
-            ID= 1,
-            Nome= "Pedro Luiz",
-            DataDeNascimento= 19,
-            Email= "Pedro@gmail.com",
-            Senha="123"
-
-        }
+            new Usuario
+            {
+                ID = 1,
+                Nome = "Pedro Luiz",
+                DataDeNascimento = new DateTime(2002, 1, 1),  // Use a data de nascimento correta
+                Email = "Pedro@gmail.com",
+                Senha = "123"
+            }
         };
-        public Usuario() {
-        listausuario ??= new List<Usuario>();
-        ID= Usuario.listausuario.Count;
-        
+
+        public Usuario()
+        {
+            listausuario ??= new List<Usuario>();
+            ID = Usuario.listausuario.Count;
         }
-        public Usuario(int iD, string nome, string email, int idade, string bio, string senha)
+
+        public Usuario(int iD, string nome, string email, DateTime dataNascimento, string bio, string senha)
         {
             ID = iD;
             Nome = nome;
             Email = email;
-            DataDeNascimento = idade;
+            DataDeNascimento = dataNascimento;
             Bio = bio;
             Senha = senha;
-        }   
-
-        public static void AdicionarUsuario(Usuario usuario)
-        {
-            listausuario.Add(usuario);
-
         }
-        //verifica se tem email iguais 
+
+        public static void AdicionarUsuario(Usuario usuario, int idade)
+        {
+            DateTime dataNascimento = Usuario.CalcularDataNascimento(idade);
+            Usuario novoUsuario = new Usuario(usuario.ID, usuario.Nome, usuario.Email, dataNascimento, usuario.Bio, usuario.Senha);
+            listausuario.Add(novoUsuario);
+        }
+
         public static bool VerificarEmailIguais(string email)
         {
-            return listausuario.Any(u=> u.Email == email);
-
+            return listausuario.Any(u => u.Email == email);
         }
-        //busca por id o usaurio
+
         public static Usuario ObterUsuarioPorID(int id)
         {
-            foreach(Usuario usuario in listausuario)
-            { 
-            if(usuario.ID == id)
-                {
-                    return usuario;
-                }
-            
-            }
-            return null;
+            return listausuario.FirstOrDefault(usuario => usuario.ID == id);
         }
 
-        // Verifica se existe 2 e-mails iguais
         public static bool VerificarEmailExiste(string? email)
         {
             return listausuario.Any(u => u.Email == email);
         }
 
-        
         public static Usuario BuscarUsuario(string email, string senha)
         {
             return listausuario.FirstOrDefault(u => u.Email == email && u.Senha == senha);
         }
 
-        // Busca o usuário pelo seu e-mail ou pelo seu ID
         public static Usuario BuscarUsuarioEmailOuID(string emailOuID)
         {
             if (int.TryParse(emailOuID, out int id))
@@ -98,23 +115,18 @@ namespace ProjetoCodex.Controller
             }
             else
             {
-                return listausuario.FirstOrDefault(u => u.Email.ToLower() == emailOuID.ToLower());
+                return listausuario.FirstOrDefault(u => u.Email.Equals(emailOuID, StringComparison.OrdinalIgnoreCase));
             }
         }
 
-
-
         public static bool FazerLogin(string email, string senha)
         {
-
             Usuario usuario = listausuario.FirstOrDefault(u => u.Email == email && u.Senha == senha);
 
             if (usuario == null)
             {
-               
-                MessageBox.Show("Usuario nao encontrado");
+                MessageBox.Show("Usuário não encontrado");
                 return true;
-
             }
             else
             {
@@ -123,20 +135,23 @@ namespace ProjetoCodex.Controller
             }
         }
 
-        // idade 
-        // Tente converter o texto da data de nascimento em uma data.
-
-        public static int CalcularIdade(DateTime datadeNascimento)
+        public static void RealizarLogout()
         {
-            int idade = DateTime.Now.Year - datadeNascimento.Year;
+            UsuarioLogado = null;
+        }
 
-            if (DateTime.Now.Month < datadeNascimento.Month || (DateTime.Now.Month == datadeNascimento.Month && DateTime.Now.Day < datadeNascimento.Day))
+        public static int CalcularIdade(DateTime dataDeNascimento)
+        {
+            int idade = DateTime.Now.Year - dataDeNascimento.Year;
+
+            if (DateTime.Now.Month < dataDeNascimento.Month || (DateTime.Now.Month == dataDeNascimento.Month && DateTime.Now.Day < dataDeNascimento.Day))
             {
                 idade--;
             }
 
             return idade;
         }
+
         public static DateTime ObterDataNascimento(int idade)
         {
             DateTime dataAtual = DateTime.Now;
@@ -151,8 +166,5 @@ namespace ProjetoCodex.Controller
 
             return new DateTime(anoNascimento, mesNascimento, diaNascimento);
         }
-
     }
-
-
 }

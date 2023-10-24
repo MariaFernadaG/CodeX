@@ -3,14 +3,49 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ProjetoCodex"
+        xmlns:local="clr-namespace:ProjetoCodex" xmlns:dispatcher="clr-namespace:System.Windows.Threading;assembly=WindowsBase"
         mc:Ignorable="d"
-        Title="TelaAcesso2" Height="450" Width="800">
+        Title="TelaAcesso2" Height="720" Width="1280" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" WindowStyle="None">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        <dispatcher:DispatcherTimer x:Key="Timer" Interval="0:0:1" Tick="DispatcherTimer_Tick" />
+    </Window.Resources>
+
     <Grid>
         <TextBox x:Name="txtNome" HorizontalAlignment="Left" Margin="50,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="50,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="266,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="376" Height="88"/>
-        <TextBox x:Name="txtIdade" HorizontalAlignment="Left" Margin="50,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="592,306,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="campoMensagem" HorizontalAlignment="Left" Margin="311,581,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="672" Height="113" />
+        <TextBox x:Name="txtIdade" HorizontalAlignment="Left" Margin="50,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="txtIdade_TextChanged"/>
+        <Button x:Name="botaoEnviarPublicacao" Content="Button" HorizontalAlignment="Left" Margin="927,657,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
+        <Button Content="Sair" HorizontalAlignment="Left" Margin="1154,69,0,0" VerticalAlignment="Top" Click="Button_Click_2"/>
+        <Button Content="Logout" Click="LogoutButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" />
+
+        <ListBox x:Name="listaPostagens" Margin="311,125,297,141" SelectionChanged="listaPostagens_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Autor}" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Conteudo}" Margin="5,0,0,0"/>
+                        <TextBlock Text="Likes:" />
+                        <TextBlock x:Name="likesTextBlock" Text="{Binding Likes}" />
+                        <TextBlock Text="Dislikes:" />
+                        <TextBlock x:Name="dislikesTextBlock" Text="{Binding Dislikes}" />
+                        <TextBlock Text="Comentários:" />
+                        <ListBox ItemsSource="{Binding Comentarios}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" />
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <TextBox x:Name="comentarioTextBox" Width="300" Margin="0,10,0,0" />
+                        <Button Content="Enviar Comentário" Click="EnviarComentarioButton_Click" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+
+
     </Grid>
 </Window>

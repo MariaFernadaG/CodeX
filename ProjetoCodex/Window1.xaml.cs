@@ -33,36 +33,40 @@ namespace ProjetoCodex
             string senha = txtSenha.Password;
             string nome = txtNome.Text;
             string dataNascimentoString = txtIdade.Text;
-            DateTime dataNascimento;
-            //string bio = txtBio.Text;
+            DateTime dataNascimento; // Declaração da variável dataNascimento no escopo externo
             string email = txtEmail.Text;
 
-            if (!txtNome.Text.Equals("") && !txtEmail.Text.Equals("") && !txtSenha.Password.Equals("") && !txtSenhaconf.Password.Equals(""))
-
+            if (!string.IsNullOrEmpty(nome) && !string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(senha))
             {
                 Regex regex = new Regex(@"^([\w.\-]+)@([\w\-]+)(\.\w{2,3})?((\.com\.br)?)?$");
-                if (regex.IsMatch(txtEmail.Text))
+                if (regex.IsMatch(email))
                 {
-
                     if (txtSenha.Password == txtSenhaconf.Password)
                     {
                         if (DateTime.TryParseExact(dataNascimentoString, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento))
                         {
                             int idade = Usuario.CalcularIdade(dataNascimento);
+
+                            DateTime dataNascimentoCalculada = Usuario.ObterDataNascimento(idade);
+
                             Usuario novoUsuario = new Usuario
                             {
-                                Nome = txtNome.Text,
-                                Email = txtEmail.Text,
-                                DataDeNascimento = idade,
-                                // Bio = txtBio.Text,
-                                Senha = txtSenha.Password,
+                                Nome = nome,
+                                Email = email,
+                                DataDeNascimento = dataNascimentoCalculada,
+                                Senha = senha,
                             };
-                            Usuario.AdicionarUsuario(novoUsuario);
-                            MessageBox.Show("Usuario cadastrado");
-                            Close();
-                        }
-                    }
 
+                            Usuario.AdicionarUsuario(novoUsuario, idade); // Inclua a idade como segundo argumento
+
+                            MessageBox.Show("Usuário cadastrado com sucesso!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Data de nascimento inválida!");
+                        }
+
+                    }
                     else
                     {
                         MessageBox.Show("Senhas diferentes!");
@@ -78,10 +82,6 @@ namespace ProjetoCodex
                 MessageBox.Show("Preencha todos os campos");
             }
         }
-
-       
-            
-        
-        
     }
 }
+

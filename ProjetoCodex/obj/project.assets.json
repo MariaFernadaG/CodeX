@@ -8,19 +8,24 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\maria\\.nuget\\packages\\": {}
+    "C:\\Users\\Pedro Luiz\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\maria\\Downloads\\ProjetoCodex\\ProjetoCodex\\ProjetoCodex\\ProjetoCodex.csproj",
+      "projectUniqueName": "C:\\Users\\Pedro Luiz\\Downloads\\ProjetoCodex (2)\\ProjetoCodex\\ProjetoCodex\\CodeX\\ProjetoCodex\\ProjetoCodex.csproj",
       "projectName": "ProjetoCodex",
-      "projectPath": "C:\\Users\\maria\\Downloads\\ProjetoCodex\\ProjetoCodex\\ProjetoCodex\\ProjetoCodex.csproj",
-      "packagesPath": "C:\\Users\\maria\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\maria\\Downloads\\ProjetoCodex\\ProjetoCodex\\ProjetoCodex\\obj\\",
+      "projectPath": "C:\\Users\\Pedro Luiz\\Downloads\\ProjetoCodex (2)\\ProjetoCodex\\ProjetoCodex\\CodeX\\ProjetoCodex\\ProjetoCodex.csproj",
+      "packagesPath": "C:\\Users\\Pedro Luiz\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Pedro Luiz\\Downloads\\ProjetoCodex (2)\\ProjetoCodex\\ProjetoCodex\\CodeX\\ProjetoCodex\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\maria\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Pedro Luiz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -28,6 +33,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -64,7 +70,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
