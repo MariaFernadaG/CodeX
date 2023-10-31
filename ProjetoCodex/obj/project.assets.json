@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pedro Luiz\\Downloads\\ProjetoCodex (2)\\ProjetoCodex\\ProjetoCodex\\CodeX\\ProjetoCodex\\ProjetoCodex.csproj",
+      "projectUniqueName": "C:\\Users\\Pedro Luiz\\Downloads\\ProjetoCodex\\CodeX\\ProjetoCodex\\ProjetoCodex.csproj",
       "projectName": "ProjetoCodex",
-      "projectPath": "C:\\Users\\Pedro Luiz\\Downloads\\ProjetoCodex (2)\\ProjetoCodex\\ProjetoCodex\\CodeX\\ProjetoCodex\\ProjetoCodex.csproj",
+      "projectPath": "C:\\Users\\Pedro Luiz\\Downloads\\ProjetoCodex\\CodeX\\ProjetoCodex\\ProjetoCodex.csproj",
       "packagesPath": "C:\\Users\\Pedro Luiz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pedro Luiz\\Downloads\\ProjetoCodex (2)\\ProjetoCodex\\ProjetoCodex\\CodeX\\ProjetoCodex\\obj\\",
+      "outputPath": "C:\\Users\\Pedro Luiz\\Downloads\\ProjetoCodex\\CodeX\\ProjetoCodex\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

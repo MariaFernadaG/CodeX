@@ -20,7 +20,10 @@ namespace ProjetoCodex
         private DispatcherTimer timer;
         public ObservableCollection<Postagem> Postagens { get; set; } = new ObservableCollection<Postagem>();
 
-        private TextBox comentarioTextBox; // Declare o TextBox para comentários
+        private TextBox comentarioTextBox;
+
+        private int maxLikesPerPost = 1;
+
 
         public TelaAcesso2()
         {
@@ -87,15 +90,55 @@ namespace ProjetoCodex
         {
             Button likeButton = (Button)sender;
             Postagem postagem = (Postagem)likeButton.DataContext;
-            postagem.Likes++; // Atualize o número de "likes"
+
+            if (postagem.LikedByUsers.Contains(Usuario.UsuarioLogado))
+            {
+                postagem.Likes--; // Reverter a curtida
+                postagem.LikedByUsers.Remove(Usuario.UsuarioLogado); // Remover o usuário da lista de quem curtiu
+            }
+            else if (postagem.DislikedByUsers.Contains(Usuario.UsuarioLogado))
+            {
+                // O usuário havia descurtido, mas agora curte a postagem
+                postagem.Likes++;
+                postagem.LikedByUsers.Add(Usuario.UsuarioLogado);
+
+                postagem.Dislikes--; // Reverter o descurtir
+                postagem.DislikedByUsers.Remove(Usuario.UsuarioLogado); // Remover o usuário da lista de quem descurtiu
+            }
+            else
+            {
+                postagem.Likes++; // Adicionar uma curtida
+                postagem.LikedByUsers.Add(Usuario.UsuarioLogado); // Adicionar o usuário à lista de quem curtiu
+            }
         }
 
         private void DislikeButton_Click(object sender, RoutedEventArgs e)
         {
             Button dislikeButton = (Button)sender;
             Postagem postagem = (Postagem)dislikeButton.DataContext;
-            postagem.Dislikes++; // Atualize o número de "dislikes"
+
+            if (postagem.DislikedByUsers.Contains(Usuario.UsuarioLogado))
+            {
+                postagem.Dislikes--; // Reverter o descurtir
+                postagem.DislikedByUsers.Remove(Usuario.UsuarioLogado); // Remover o usuário da lista de quem descurtiu
+            }
+            else if (postagem.LikedByUsers.Contains(Usuario.UsuarioLogado))
+            {
+                // O usuário havia curtido, mas agora descurte a postagem
+                postagem.Dislikes++;
+                postagem.DislikedByUsers.Add(Usuario.UsuarioLogado);
+
+                postagem.Likes--; // Reverter a curtida
+                postagem.LikedByUsers.Remove(Usuario.UsuarioLogado); // Remover o usuário da lista de quem curtiu
+            }
+            else
+            {
+                postagem.Dislikes++; // Adicionar um descurtir
+                postagem.DislikedByUsers.Add(Usuario.UsuarioLogado); // Adicionar o usuário à lista de quem descurtiu
+            }
         }
+
+
         private void AdicionarComentarioButton_Click(object sender, RoutedEventArgs e)
         {
             // Obtém o botão que foi clicado
@@ -134,6 +177,11 @@ namespace ProjetoCodex
         }
 
         private void txtIdade_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Frame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
 
         }

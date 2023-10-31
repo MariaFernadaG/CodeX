@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,10 @@ namespace ProjetoCodex.Controller
     {
         private int likes;
         private int dislikes;
+
+        public ObservableCollection<Usuario> LikedByUsers { get; set; } = new ObservableCollection<Usuario>();
+        public ObservableCollection<Usuario> DislikedByUsers { get; set; } = new ObservableCollection<Usuario>();
+
 
         public class Comentario
         {

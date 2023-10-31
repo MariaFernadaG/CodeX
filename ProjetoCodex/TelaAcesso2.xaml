@@ -26,10 +26,11 @@
                     <StackPanel>
                         <TextBlock Text="{Binding Autor}" FontWeight="Bold"/>
                         <TextBlock Text="{Binding Conteudo}" Margin="5,0,0,0"/>
-                        <TextBlock Text="Likes:" />
-                        <TextBlock x:Name="likesTextBlock" Text="{Binding Likes}" />
-                        <TextBlock Text="Dislikes:" />
-                        <TextBlock x:Name="dislikesTextBlock" Text="{Binding Dislikes}" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name="likesTextBlock" Text="{Binding Likes}" Margin="0,0,5,0" />
+                            <Button Content="Like" Click="LikeButton_Click" />
+                            <Button Content="Dislike" Click="DislikeButton_Click" />
+                        </StackPanel>
                         <TextBlock Text="Comentários:" />
                         <ListBox ItemsSource="{Binding Comentarios}">
                             <ListBox.ItemTemplate>
@@ -44,8 +45,5 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-
-
-
     </Grid>
 </Window>
