@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace ProjetoCodex.Controller
@@ -17,7 +14,6 @@ namespace ProjetoCodex.Controller
         public ObservableCollection<Usuario> LikedByUsers { get; set; } = new ObservableCollection<Usuario>();
         public ObservableCollection<Usuario> DislikedByUsers { get; set; } = new ObservableCollection<Usuario>();
 
-
         public class Comentario
         {
             public string Autor { get; set; }
@@ -25,7 +21,6 @@ namespace ProjetoCodex.Controller
         }
 
         public List<Comentario> Comentarios { get; set; } = new List<Comentario>();
-
 
         public int Likes
         {
@@ -53,31 +48,20 @@ namespace ProjetoCodex.Controller
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        private static int  contadorID=-1;
+
+        private static int contadorID = -1;
         public int ID { get; set; }
         public string Assunto { get; set; }
         public string Conteudo { get; set; }
         public string Autor { get; set; }
         public string Categoria { get; set; }
         public Boolean Reacao { get; set; }
-      
-
-
 
         public static List<Postagem> postagens { get; set; } = new List<Postagem>();
 
-       /* public Postagem(string assunto,string conteudo, Usuario autor,string categoria, Boolean reacao)
-        {
-            ID = contadorID++;
-            Assunto = assunto;
-            Conteudo = conteudo;
-            Autor = autor;
-            Categoria = categoria;
-            Reacao = reacao;
+        public static event Action OnPostagensChanged;
 
-            
-        }*/
-        public Postagem(string Autor,string Conteudo)
+        public Postagem(string Autor, string Conteudo)
         {
             ID = contadorID++;
             this.Conteudo = Conteudo;
@@ -85,50 +69,37 @@ namespace ProjetoCodex.Controller
             Likes = 0;
             Dislikes = 0;
         }
-        //criar postagem pre definidas 
 
-
-        
-        //adicionar postagem
-        public static void AdionarPostagem(Postagem postagem)
-        {
-         postagens.Add(postagem);
-        }
         public static void AdicionarPostagemAutorConteudo(string Autor, string Conteudo)
-
         {
             Postagem novaPostagem = new Postagem(Autor, Conteudo);
             postagens.Add(novaPostagem);
+            OnPostagensChanged?.Invoke();
         }
-        //retorna postagens
+
         public static List<Postagem> ListarPostagens()
         {
-            foreach (var postagem in postagens)
-            {
-                MessageBox.Show($"ID: {postagem.ID} \n Autor: {postagem.Autor} \n Conteúdo: {postagem.Conteudo}");
-                Console.WriteLine($"Autor: {postagem.Autor}");
-                Console.WriteLine($"Conteúdo: {postagem.Conteudo}");
-                Console.WriteLine(); // Linha em branco entre as postagens
-            }
             return postagens;
         }
+
+        public static void ExcluirPostagemEspecifica(Postagem postagem)
+        {
+            if (postagens.Contains(postagem))
+            {
+                postagens.Remove(postagem);
+                OnPostagensChanged?.Invoke();
+            }
+        }
+
         public void AdicionarComentario(string autor, string texto)
         {
             Comentarios.Add(new Comentario { Autor = autor, Texto = texto });
         }
+
         public static void ExcluirPostagem(Postagem postagem)
         {
             postagens.Remove(postagem);
-           
-        }
-        public static void ReagirPostagem()
-        {
-
-        }
-        public static void EditarPostagem()
-        {
-
+            OnPostagensChanged?.Invoke();
         }
     }
 }
-

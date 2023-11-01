@@ -30,6 +30,7 @@
                             <TextBlock x:Name="likesTextBlock" Text="{Binding Likes}" Margin="0,0,5,0" />
                             <Button Content="Like" Click="LikeButton_Click" />
                             <Button Content="Dislike" Click="DislikeButton_Click" />
+                            <Button Content="Excluir Postagem" Click="ExcluirPostagemButton_Click"/>
                         </StackPanel>
                         <TextBlock Text="Comentários:" />
                         <ListBox ItemsSource="{Binding Comentarios}">

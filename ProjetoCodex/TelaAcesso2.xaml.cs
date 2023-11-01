@@ -38,6 +38,9 @@ namespace ProjetoCodex
 
             listaPostagens.ItemsSource = Postagens;
             comentarioTextBox = (TextBox)FindName("comentarioTextBox");
+            Postagem.OnPostagensChanged += AtualizarPostagens;
+
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -173,6 +176,31 @@ namespace ProjetoCodex
                     // Limpe o TextBox após adicionar o comentário
                     comentarioTextBox.Text = ""; // Em vez de atualizar comentarioTextBox, você deve limpar o texto do TextBox diretamente
                 }
+            }
+        }
+        private void ExcluirPostagemButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button excluirButton = (Button)sender;
+            Postagem postagem = (Postagem)excluirButton.DataContext;
+
+            // Verifique se o usuário logado é o autor da postagem
+            if (postagem.Autor == Usuario.UsuarioLogado.Nome)
+            {
+                // Remova a postagem da fonte de dados
+                Postagem.ExcluirPostagemEspecifica(postagem);
+            }
+            else
+            {
+                MessageBox.Show("Você não tem permissão para excluir esta postagem.");
+            }
+        }
+        private void AtualizarPostagens()
+        {
+            // Atualize a lista de Postagens com as postagens existentes em Postagem.postagens
+            Postagens.Clear();
+            foreach (var postagem in Postagem.postagens)
+            {
+                Postagens.Add(postagem);
             }
         }
 
