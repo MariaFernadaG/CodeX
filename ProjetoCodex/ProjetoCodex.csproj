@@ -12,11 +12,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ImageBotaoLogout.png" />
+    <None Remove="ImageBotaoPerfil.png" />
+    <None Remove="ImageBotaoPublicacao.png" />
     <None Remove="imagem de registro login.png" />
     <None Remove="imagem entrar login.jpg" />
     <None Remove="imagem fundo cadastro.png" />
     <None Remove="imagem fundo login.jpeg" />
     <None Remove="TelaCadastro.jpg" />
+    <None Remove="TelaNotificacao.png" />
+    <None Remove="TelaPerfilUser.png" />
+    <None Remove="TelaUser.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,11 +30,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="ImageBotaoLogout.png" />
+    <Resource Include="ImageBotaoPerfil.png" />
+    <Resource Include="ImageBotaoPublicacao.png" />
     <Resource Include="imagem de registro login.png" />
     <Resource Include="imagem entrar login.jpg" />
     <Resource Include="imagem fundo cadastro.png" />
     <Resource Include="imagem fundo login.jpeg" />
     <Resource Include="TelaCadastro.jpg" />
+    <Resource Include="TelaNotificacao.png" />
+    <Resource Include="TelaPerfilUser.png" />
+    <Resource Include="TelaUser.png" />
   </ItemGroup>
 
 </Project>

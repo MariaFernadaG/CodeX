@@ -12,15 +12,20 @@
     </Window.Resources>
 
     <Grid>
-        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Margin="50,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="50,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="campoMensagem" HorizontalAlignment="Left" Margin="311,581,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="672" Height="113" />
-        <TextBox x:Name="txtIdade" HorizontalAlignment="Left" Margin="50,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="txtIdade_TextChanged"/>
-        <Button x:Name="botaoEnviarPublicacao" Content="Button" HorizontalAlignment="Left" Margin="927,657,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
+        <Image HorizontalAlignment="Center" Height="721" VerticalAlignment="Center" Width="1280" Source="/TelaUser.png"/>
+        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Margin="110,290,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="110,336,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="campoMensagem" HorizontalAlignment="Left" Margin="336,553,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="647" Height="124" Background="{x:Null}" />
+        <TextBox x:Name="txtIdade" HorizontalAlignment="Left" Margin="110,313,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="txtIdade_TextChanged"/>
+        <Button x:Name="botaoEnviarPublicacao" Content="Button" HorizontalAlignment="Left" Margin="905,604,0,0" VerticalAlignment="Top" Click="Button_Click_1" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="63" Width="62">
+            <Button.Background>
+                <ImageBrush ImageSource="/ImageBotaoPublicacao.png"/>
+            </Button.Background>
+        </Button>
         <Button Content="Sair" HorizontalAlignment="Left" Margin="1154,69,0,0" VerticalAlignment="Top" Click="Button_Click_2"/>
         <Button Content="Logout" Click="LogoutButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" />
 
-        <ListBox x:Name="listaPostagens" Margin="311,125,297,141" SelectionChanged="listaPostagens_SelectionChanged">
+        <ListBox x:Name="listaPostagens" Margin="336,94,297,192" SelectionChanged="listaPostagens_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -46,5 +51,13 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="97,431,0,0" VerticalAlignment="Top" Height="54" Width="129" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="Button_Click_3">
+            <Button.Background>
+                <ImageBrush ImageSource="/ImageBotaoPerfil.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Notificação" HorizontalAlignment="Left" Margin="97,499,0,0" VerticalAlignment="Top" Width="129" Height="49" Click="Button_Click_6"/>
+        <Button Content="Configuração" HorizontalAlignment="Left" Margin="97,564,0,0" VerticalAlignment="Top" Width="129" Height="51" Click="Button_Click_5"/>
+        <Button Content="Logout" HorizontalAlignment="Left" Margin="97,636,0,0" VerticalAlignment="Top" Width="129" Height="41" Click="Button_Click_4"/>
     </Grid>
 </Window>

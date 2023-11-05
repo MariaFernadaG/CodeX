@@ -104,3 +104,11 @@ C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-w
 C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.pdb
 C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.genruntimeconfig.cache
 C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ref\ProjetoCodex.dll
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\LogoutPage.g.cs
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\PerfilPage.g.cs
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\LogoutPage.baml
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\PerfilPage.baml
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ConfiguracaoPage.g.cs
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\NotificacaoPage.g.cs
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ConfiguracaoPage.baml
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\NotificacaoPage.baml

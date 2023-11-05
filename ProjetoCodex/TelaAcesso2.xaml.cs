@@ -213,5 +213,32 @@ namespace ProjetoCodex
         {
 
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+           PerfilPage perfilPage = new PerfilPage();
+            perfilPage.Show();
+            this.Close();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            LogoutPage logoutPage = new LogoutPage();
+            logoutPage.Show();
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            ConfiguracaoPage configuracaoPage = new ConfiguracaoPage();
+            configuracaoPage.Show();
+            this.Close();
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            NotificacaoPage notificacaoPage = new NotificacaoPage();
+            notificacaoPage.Show();
+            this.Close();
+        }
     }
 }

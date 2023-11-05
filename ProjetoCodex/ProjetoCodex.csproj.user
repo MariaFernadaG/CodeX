@@ -7,7 +7,19 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ConfiguracaoPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="LogoutPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="NotificacaoPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Perfil.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PerfilPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="TelaAcesso1.xaml.cs">
@@ -21,10 +33,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ConfiguracaoPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="LogoutPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="NotificacaoPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Perfil.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PerfilPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="TelaAcesso1.xaml">

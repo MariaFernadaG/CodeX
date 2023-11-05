@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\App.xaml
-5-585305214
+9-124515235
 
-13-2037201898
+1889745220
 194183970531
-MainWindow.xaml;Perfil.xaml;TelaAcesso1.xaml;TelaAcesso2.xaml;Window1.xaml;
+ConfiguracaoPage.xaml;LogoutPage.xaml;MainWindow.xaml;NotificacaoPage.xaml;Perfil.xaml;PerfilPage.xaml;TelaAcesso1.xaml;TelaAcesso2.xaml;Window1.xaml;
 
 False
 
