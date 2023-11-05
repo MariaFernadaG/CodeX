@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.ComponentModel; // Adicione esta linha
+using System.Windows; // Adicione esta linha
 
 namespace ProjetoCodex
 {
@@ -24,7 +26,6 @@ namespace ProjetoCodex
 
         private int maxLikesPerPost = 1;
 
-
         public TelaAcesso2()
         {
             InitializeComponent();
@@ -36,11 +37,16 @@ namespace ProjetoCodex
             timer.Tick += DispatcherTimer_Tick;
             timer.Start();
 
+            // Inverta a ordem das postagens no início
+            Postagem.postagens.Reverse();
+
             listaPostagens.ItemsSource = Postagens;
             comentarioTextBox = (TextBox)FindName("comentarioTextBox");
             Postagem.OnPostagensChanged += AtualizarPostagens;
 
-
+            // Força a ordenação da lista de postagens na ordem correta (mais recente no topo)
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listaPostagens.ItemsSource);
+            view.SortDescriptions.Add(new SortDescription("ID", ListSortDirection.Descending));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -240,5 +246,12 @@ namespace ProjetoCodex
             notificacaoPage.Show();
             this.Close();
         }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            TelaAcesso2 telaAcesso2 = new TelaAcesso2();
+            telaAcesso2.Show();
+            this.Close();
+        }    
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjetoCodex"
         mc:Ignorable="d"
-        Title="PerfilPage" Height="720" Width="1280" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="PerfilPage" Height="720" Width="1280" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
         <Image HorizontalAlignment="Center" Height="720" VerticalAlignment="Center" Width="1280" Source="/TelaPerfilUser.png" Margin="-1,0,0,0">
             <Image.OpacityMask>
@@ -25,8 +25,12 @@
                 <ImageBrush ImageSource="/ImageBotaoLogout.png"/>
             </Button.Background>
         </Button>
+        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Margin="110,290,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="110,336,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtIdade" HorizontalAlignment="Left" Margin="110,313,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button Content="CONFIGURAÇÃO" HorizontalAlignment="Left" Margin="97,558,0,0" VerticalAlignment="Top" Width="123" Height="42" Click="Button_Click_2"/>
         <Button Content="Notificação" HorizontalAlignment="Left" Margin="97,496,0,0" VerticalAlignment="Top" Width="123" Height="39" Click="Button_Click_3"/>
+        <Button Content="HOME" HorizontalAlignment="Left" Margin="68,0,0,0" VerticalAlignment="Top" Width="140" Height="93" Click="Button_Click_4"/>
 
     </Grid>
 </Window>

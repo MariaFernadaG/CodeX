@@ -81,6 +81,8 @@ namespace ProjetoCodex
             {
                 MessageBox.Show("Preencha todos os campos");
             }
+
+            this.Close();
         }
     }
 }
