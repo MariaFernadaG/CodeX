@@ -91,9 +91,9 @@ namespace ProjetoCodex.Controller
             }
         }
 
-        public void AdicionarComentario(string autor, string texto)
+        public void AdicionarComentario(string nome, string texto)
         {
-            Comentarios.Add(new Comentario { Autor = autor, Texto = texto });
+            Comentarios.Add(new Comentario { Autor = nome, Texto = texto });
         }
 
         public static void ExcluirPostagem(Postagem postagem)

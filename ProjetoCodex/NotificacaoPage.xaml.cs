@@ -11,6 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
@@ -27,6 +28,8 @@ namespace ProjetoCodex
             txtEmail.Text = Usuario.UsuarioLogado.Email;
             txtNome.Text = Usuario.UsuarioLogado.Nome;
             txtIdade.Text = Usuario.UsuarioLogado.DataDeNascimento.ToString();
+           
+            Usuario.UsuarioLogado.MostrarNotificacoesPublico();
 
 
         }
@@ -57,5 +60,16 @@ namespace ProjetoCodex
             telaAcesso2.Show();
             this.Close();
         }
+        public void PreencherListBoxComUsuarios(ListBox ListSolicitacoes)
+        {
+
+         
+
+        }
+
     }
 }
+
+
+
+

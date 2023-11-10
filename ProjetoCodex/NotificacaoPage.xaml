@@ -15,6 +15,6 @@
         <Button Content="Configuração" HorizontalAlignment="Left" Margin="104,563,0,0" VerticalAlignment="Top" Width="112" Height="51" Click="Button_Click_1"/>
         <Button Content="Perfil" HorizontalAlignment="Left" Margin="104,432,0,0" VerticalAlignment="Top" Width="112" Height="51" Click="Button_Click"/>
         <Button Content="HOME" HorizontalAlignment="Left" Margin="67,0,0,0" VerticalAlignment="Top" Height="94" Width="143" Click="Button_Click_3"/>
-
+        
     </Grid>
 </Window>

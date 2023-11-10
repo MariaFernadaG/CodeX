@@ -36,6 +36,7 @@
                             <Button Content="Like" Click="LikeButton_Click" />
                             <Button Content="Dislike" Click="DislikeButton_Click" />
                             <Button Content="Excluir Postagem" Click="ExcluirPostagemButton_Click"/>
+                            
                         </StackPanel>
                         <TextBlock Text="Comentários:" />
                         <ListBox ItemsSource="{Binding Comentarios}">
@@ -60,5 +61,30 @@
         <Button Content="Configuração" HorizontalAlignment="Left" Margin="97,564,0,0" VerticalAlignment="Top" Width="129" Height="51" Click="Button_Click_5"/>
         <Button Content="Logout" HorizontalAlignment="Left" Margin="97,636,0,0" VerticalAlignment="Top" Width="129" Height="41" Click="Button_Click_4"/>
         <Button Content="HOME" HorizontalAlignment="Left" Margin="66,0,0,0" VerticalAlignment="Top" Width="142" Height="93" Click="Button_Click_7"/>
+        <ListBox x:Name="ListSugestoes" ItemsSource="{Binding Usuarios}" Margin="1038,143,21,439">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Nome}" Margin="10,0,10,0" VerticalAlignment="Center" />
+                        <Button Content="Solicitar Amizade" Click="SolicitarAmizade_Click" Tag="{Binding Nome}" />
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox x:Name="ListSNotificacoes" Margin="1038,360,21,84" ItemsSource="{Binding SolicitacoesAmizadePendente}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding NomeRemetenteSolicitacao}" Margin="10,0,10,0" VerticalAlignment="Center" />
+                        <Button Content="Aceitar Solicitação" Tag="{Binding NomeRemetenteSolicitacao}" />
+                        <Button Content="Negar Solicitação" Tag="{Binding NomeRemetenteSolicitacao}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+
+
     </Grid>
 </Window>

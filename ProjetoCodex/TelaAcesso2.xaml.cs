@@ -14,6 +14,10 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.ComponentModel; // Adicione esta linha
 using System.Windows; // Adicione esta linha
+using static ProjetoCodex.Controller.Usuario;
+using System.Collections.Generic;
+using System.Windows.Media.Animation;
+using System.Windows.Navigation;
 
 namespace ProjetoCodex
 {
@@ -22,10 +26,14 @@ namespace ProjetoCodex
         private DispatcherTimer timer;
         public ObservableCollection<Postagem> Postagens { get; set; } = new ObservableCollection<Postagem>();
 
+
+
         private TextBox comentarioTextBox;
 
         private int maxLikesPerPost = 1;
+       
 
+        public ObservableCollection<Usuario> Usuarios { get; set; }
         public TelaAcesso2()
         {
             InitializeComponent();
@@ -47,7 +55,19 @@ namespace ProjetoCodex
             // Força a ordenação da lista de postagens na ordem correta (mais recente no topo)
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listaPostagens.ItemsSource);
             view.SortDescriptions.Add(new SortDescription("ID", ListSortDirection.Descending));
+            //amizade
+            // Substitua "usuarioLogado" pelo usuário atualmente logado no seu aplicativo.
+            Usuario usuarioLogado = Usuario.UsuarioLogado;
+
+            // Preencha o ListBox com os usuários excluindo o usuário logado.
+            ListSugestoes.ItemsSource = Usuario.listausuario.Where(u => u != usuarioLogado);
+            
+
+
+
         }
+       
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -164,8 +184,7 @@ namespace ProjetoCodex
             postagem.AdicionarComentario(autor, textoComentario);
         }
         private void EnviarComentarioButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Obtenha o item da ListBox selecionado (a postagem à qual você deseja adicionar o comentário)
+        { /// Obtenha a postagem selecionada
             Postagem postagem = (Postagem)listaPostagens.SelectedItem;
 
             if (postagem != null)
@@ -180,9 +199,10 @@ namespace ProjetoCodex
                     postagem.AdicionarComentario(Usuario.UsuarioLogado.Nome, comentario);
 
                     // Limpe o TextBox após adicionar o comentário
-                    comentarioTextBox.Text = ""; // Em vez de atualizar comentarioTextBox, você deve limpar o texto do TextBox diretamente
+                    comentarioTextBox.Text = "";
                 }
             }
+
         }
         private void ExcluirPostagemButton_Click(object sender, RoutedEventArgs e)
         {
@@ -192,13 +212,22 @@ namespace ProjetoCodex
             // Verifique se o usuário logado é o autor da postagem
             if (postagem.Autor == Usuario.UsuarioLogado.Nome)
             {
-                // Remova a postagem da fonte de dados
-                Postagem.ExcluirPostagemEspecifica(postagem);
+                // Exibir mensagem de confirmação
+                MessageBoxResult result = MessageBox.Show("Tem certeza que deseja excluir esta postagem?", "Confirmação", MessageBoxButton.YesNo);
+
+                // Verificar a resposta do usuário
+                if (result == MessageBoxResult.Yes)
+                {
+                    // Remova a postagem da fonte de dados
+                    Postagem.ExcluirPostagemEspecifica(postagem);
+                }
+                // Se o usuário clicar em "Não", não faça nada
             }
             else
             {
                 MessageBox.Show("Você não tem permissão para excluir esta postagem.");
             }
+          
         }
         private void AtualizarPostagens()
         {
@@ -222,7 +251,7 @@ namespace ProjetoCodex
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-           PerfilPage perfilPage = new PerfilPage();
+            PerfilPage perfilPage = new PerfilPage();
             perfilPage.Show();
             this.Close();
         }
@@ -252,6 +281,69 @@ namespace ProjetoCodex
             TelaAcesso2 telaAcesso2 = new TelaAcesso2();
             telaAcesso2.Show();
             this.Close();
-        }    
+        }
+
+        public void PreencherListBoxComUsuarios(ListBox listBox)
+        {
+            //listBox.Items.Clear(); // Limpa a ListBox para evitar duplicatas
+
+            foreach (Usuario usuario in Usuario.listausuario)
+            {
+                ListSugestoes.Items.Add(usuario.Nome);
+                ListSugestoes.Items.Add(usuario.ID);// Adiciona o nome do usuário à ListBox
+               
+            }
+        }
+        public void PreencherListBoxComSolicitacoes(ListBox ListSNotificacoes)
+        {
+          
+
+            
+
+
+        }
+        private void listboxSugestao_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ListSugestoes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        
+        private void SolicitarAmizade_Click(object sender, RoutedEventArgs e)
+        {
+             Usuario usuarioSelecionado = (Usuario)ListSugestoes.SelectedItem;
+
+             if (usuarioSelecionado != null)
+             {
+                 // Verifique se já existe uma solicitação de amizade pendente
+                 if (!Usuario.UsuarioLogado.SolicitacoesAmizadePendentes.Contains(usuarioSelecionado))
+                 {
+                     // Envie a solicitação de amizade para o usuário selecionado
+                     Usuario.UsuarioLogado.EnviarSolicitacaoAmizade(usuarioSelecionado);
+
+                     // Atualize a interface do usuário ou forneça um feedback adequado
+                     MessageBox.Show("Solicitação de amizade enviada para " + usuarioSelecionado.Nome);
+
+
+
+                     // Atualize a ListBox com a nova fonte de dados
+                     ListSugestoes.ItemsSource = Usuario.listausuario.Where(u => u != Usuario.UsuarioLogado).ToList();
+
+                 }
+                 else
+                 {
+                     MessageBox.Show("Você já enviou uma solicitação de amizade para " + usuarioSelecionado.Nome);
+                 }
+          
+            }
+           
+        }
+
+       
     }
 }
+    
+

@@ -8,27 +8,13 @@ namespace ProjetoCodex.Controller
 {
     public class Notificacao
     {
-        public int ID { set; get; }
-        public string Titulo { set; get; }
-        public string Conteudo { set; get; }
-        public Usuario Destinatario { set; get; }
-        public static List<Notificacao> listaNotificacoes { get; set; } = new List<Notificacao>();
-        public static int contadorNot = 0;
+        public string Mensagem { get; set; }
+        public Usuario Remetente { get; set; } // Adicione uma propriedade para armazenar o remetente da notificação
 
-        public Notificacao()
+        public Notificacao(string mensagem)
         {
-
-        }
-
-        public static void AdicionarNotificacao(Notificacao notificacao)
-        {
-            listaNotificacoes.Add(notificacao);
-            contadorNot++;
-        }
-
-        public static List<Notificacao> ListarNotificacoes()
-        {
-            return listaNotificacoes;
+            Mensagem = mensagem;
+            Remetente = Remetente;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,8 +17,72 @@ namespace ProjetoCodex.Controller
         public string Bio { get; set; }
         public string Senha { get; set; }
         public int User { get; set; }
+        public string MensagemSolicitacao { get; set; }
+        public string NomeRemetenteSolicitacao { get; set; }
+        public int seguidores { get; set; }
 
         public static DateTime DataDeNascimentoPadrao = new DateTime(2000, 1, 1);
+       
+        public List<Usuario> Amigos { get; set; } = new List<Usuario>();
+       
+        public List<Notificacao> Notificacoes { get; set; } = new List<Notificacao>();
+        public List<Usuario> Amigo { get; set; } = new List<Usuario>();
+        public List<Usuario> SolicitacoesAmizadePendentes { get; set; } = new List<Usuario>();
+
+
+        private void MostrarNotificacoes()
+        {
+            foreach (var notificacao in Usuario.UsuarioLogado.Notificacoes)
+            {
+                MessageBoxResult result = MessageBox.Show(notificacao.Mensagem, "Confirmação", MessageBoxButton.YesNo);
+                // Verificar a resposta do usuário
+                if (result == MessageBoxResult.Yes)
+                {
+                   
+                    // Remova a postagem da fonte de dados
+                    MessageBox.Show("Solicitação aceita.");
+                  
+
+
+
+                }
+            else
+            {
+                MessageBox.Show("Solitição recusada.");
+            }
+        }
+
+            // Limpe as notificações depois de exibi-las
+            Usuario.UsuarioLogado.Notificacoes.Clear();
+        }
+
+        // Método para enviar uma solicitação de amizade
+
+        public void EnviarSolicitacaoAmizade(Usuario amigo)
+        {
+            if (!Amigos.Contains(amigo) && !SolicitacoesAmizadePendentes.Contains(amigo))
+            {
+                SolicitacoesAmizadePendentes.Add(amigo);
+                amigo.NomeRemetenteSolicitacao = Nome;
+
+                // Adicione uma notificação ao usuário de destino
+                amigo.Notificacoes.Add(new Notificacao($"{Nome} enviou uma solicitação de amizade."));
+            }
+        }
+        public void AceitarSolicitacaoAmizade(Usuario amigo)
+        {
+            if (SolicitacoesAmizadePendentes.Contains(amigo))
+            {
+                SolicitacoesAmizadePendentes.Remove(amigo);
+                Amigos.Add(amigo);
+                amigo.Amigos.Add(this);
+            }
+        }
+
+        public void MostrarNotificacoesPublico()
+        {
+            MostrarNotificacoes();
+        }
 
         public static DateTime CalcularDataNascimento(int idade)
         {
@@ -40,6 +105,7 @@ namespace ProjetoCodex.Controller
             return new DateTime(anoNascimento, mesNascimento, diaNascimento);
         }
 
+       
 
         public static Usuario UsuarioLogado { get; private set; }
 
@@ -130,8 +196,24 @@ namespace ProjetoCodex.Controller
             }
             else
             {
-                UsuarioLogado = usuario;
+                Usuario.UsuarioLogado = usuario;
+
+                /*/ Exiba as notificações, se houver alguma
+                foreach (var notificacao in usuario.Notificacoes.ToList())
+                {
+                    usuario.MostrarNotificacoes();
+                }
+
+                // Limpe as notificações depois de exibi-las
+                usuario.Notificacoes.Clear();
+
+                // Aqui você pode continuar com o resto do seu código
+
                 return false;
+
+
+                */ UsuarioLogado = usuario;
+                 return false;
             }
         }
 
@@ -166,5 +248,7 @@ namespace ProjetoCodex.Controller
 
             return new DateTime(anoNascimento, mesNascimento, diaNascimento);
         }
+       
     }
+   
 }
