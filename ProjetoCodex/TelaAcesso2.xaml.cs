@@ -25,7 +25,7 @@ namespace ProjetoCodex
     {
         private DispatcherTimer timer;
         public ObservableCollection<Postagem> Postagens { get; set; } = new ObservableCollection<Postagem>();
-
+       
 
 
         private TextBox comentarioTextBox;
@@ -61,12 +61,12 @@ namespace ProjetoCodex
 
             // Preencha o ListBox com os usuários excluindo o usuário logado.
             ListSugestoes.ItemsSource = Usuario.listausuario.Where(u => u != usuarioLogado);
-            
+           
 
 
 
         }
-       
+
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -177,34 +177,47 @@ namespace ProjetoCodex
             Postagem postagem = (Postagem)adicionarComentarioButton.DataContext;
 
             // Aqui, você pode obter o autor e texto do comentário de alguma entrada do usuário, por exemplo:
-            string autor = "Nome do Autor";
-            string textoComentario = "Texto do Comentário";
+            string autor = UsuarioLogado.Nome;
+            string texto = comentarioTextBox.Text;
 
             // Chame o método AdicionarComentario da postagem para adicionar o novo comentário
-            postagem.AdicionarComentario(autor, textoComentario);
+            postagem.AdicionarComentario(autor, texto);
         }
         private void EnviarComentarioButton_Click(object sender, RoutedEventArgs e)
         { /// Obtenha a postagem selecionada
-            Postagem postagem = (Postagem)listaPostagens.SelectedItem;
+           
 
-            if (postagem != null)
+            Button button = sender as Button;
+            if (button != null)
             {
-                // Obtenha o texto do comentário do TextBox
-                string comentario = comentarioTextBox.Text;
-
-                // Verifique se o comentário não está vazio
-                if (!string.IsNullOrWhiteSpace(comentario))
+                StackPanel stackPanel = button.Parent as StackPanel;
+                if (stackPanel != null)
                 {
-                    // Adicione o comentário à postagem
-                    postagem.AdicionarComentario(Usuario.UsuarioLogado.Nome, comentario);
+                    TextBox comentarioTextBox = stackPanel.Children.OfType<TextBox>().FirstOrDefault();
+                    if (comentarioTextBox != null)
+                    {
+                        string textoComentario = comentarioTextBox.Text;
+                        // Faça algo com o texto do comentário...
+                       
+                        string autor = UsuarioLogado.Nome;
+                        string texto = comentarioTextBox.Text;
+                      
+                        Button adicionarComentarioButton = (Button)sender;
 
-                    // Limpe o TextBox após adicionar o comentário
-                    comentarioTextBox.Text = "";
+                        // A partir do botão, obtenha a postagem à qual deseja adicionar um comentário
+                        Postagem postagem = (Postagem)adicionarComentarioButton.DataContext;
+
+                        // Aqui, você pode obter o autor e texto do comentário de alguma entrada do usuário, por exemplo:
+                       
+                        // Chame o método AdicionarComentario da postagem para adicionar o novo comentário
+                        postagem.AdicionarComentario(autor, texto);
+                    }
                 }
-            }
 
-        }
-        private void ExcluirPostagemButton_Click(object sender, RoutedEventArgs e)
+
+            }
+         }
+            private void ExcluirPostagemButton_Click(object sender, RoutedEventArgs e)
         {
             Button excluirButton = (Button)sender;
             Postagem postagem = (Postagem)excluirButton.DataContext;
@@ -291,6 +304,7 @@ namespace ProjetoCodex
             {
                 ListSugestoes.Items.Add(usuario.Nome);
                 ListSugestoes.Items.Add(usuario.ID);// Adiciona o nome do usuário à ListBox
+
                
             }
         }
@@ -311,7 +325,17 @@ namespace ProjetoCodex
         {
 
         }
-        
+        private void ComentarioTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(comentarioTextBox.Text))
+            {
+                // Adicione o comentário à listbox
+                listaPostagens.Items.Add(comentarioTextBox.Text);
+
+                // Limpe o TextBox após adicionar o comentário
+                comentarioTextBox.Text = string.Empty;
+            }
+        }
         private void SolicitarAmizade_Click(object sender, RoutedEventArgs e)
         {
              Usuario usuarioSelecionado = (Usuario)ListSugestoes.SelectedItem;

@@ -20,7 +20,9 @@ namespace ProjetoCodex.Controller
             public string Texto { get; set; }
         }
 
-        public List<Comentario> Comentarios { get; set; } = new List<Comentario>();
+        //public List<Comentario> Comentarios { get; set; } = new List<Comentario>();
+        public ObservableCollection<Comentario> Comentarios { get; set; } = new ObservableCollection<Comentario>();
+
 
         public int Likes
         {
@@ -59,6 +61,8 @@ namespace ProjetoCodex.Controller
 
         public static List<Postagem> postagens { get; set; } = new List<Postagem>();
 
+        
+
         public static event Action OnPostagensChanged;
 
         public Postagem(string Autor, string Conteudo)
@@ -91,9 +95,11 @@ namespace ProjetoCodex.Controller
             }
         }
 
-        public void AdicionarComentario(string nome, string texto)
+        public  void AdicionarComentario(string Autor, string Texto)
         {
-            Comentarios.Add(new Comentario { Autor = nome, Texto = texto });
+            
+            Comentarios.Add(new Comentario { Autor = Autor, Texto = Texto });
+            OnPostagensChanged?.Invoke();
         }
 
         public static void ExcluirPostagem(Postagem postagem)

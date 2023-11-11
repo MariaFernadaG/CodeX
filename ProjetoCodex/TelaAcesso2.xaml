@@ -36,13 +36,16 @@
                             <Button Content="Like" Click="LikeButton_Click" />
                             <Button Content="Dislike" Click="DislikeButton_Click" />
                             <Button Content="Excluir Postagem" Click="ExcluirPostagemButton_Click"/>
-                            
                         </StackPanel>
-                        <TextBlock Text="Comentários:" />
+                        <TextBlock Text="Comentários:" FontWeight="Bold" FontSize="13" Margin="0,10,0,5" />
                         <ListBox ItemsSource="{Binding Comentarios}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding}" />
+                                    <StackPanel>
+                                        
+                                        <TextBlock Text="{Binding Autor}" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding Texto}" Margin="5,0,0,0"/>
+                                    </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
@@ -52,6 +55,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
         <Button Content="Button" HorizontalAlignment="Left" Margin="97,431,0,0" VerticalAlignment="Top" Height="54" Width="129" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="Button_Click_3">
             <Button.Background>
                 <ImageBrush ImageSource="/ImageBotaoPerfil.png"/>
