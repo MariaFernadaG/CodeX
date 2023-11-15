@@ -66,7 +66,7 @@ namespace ProjetoCodex.Controller
                 amigo.NomeRemetenteSolicitacao = Nome;
 
                 // Adicione uma notificação ao usuário de destino
-                amigo.Notificacoes.Add(new Notificacao($"{Nome} enviou uma solicitação de amizade."));
+               amigo.Notificacoes.Add(new Notificacao($"{Nome} enviou uma solicitação de amizade."));
             }
         }
         public void AceitarSolicitacaoAmizade(Usuario amigo)
@@ -197,22 +197,6 @@ namespace ProjetoCodex.Controller
             else
             {
                 Usuario.UsuarioLogado = usuario;
-
-                /*/ Exiba as notificações, se houver alguma
-                foreach (var notificacao in usuario.Notificacoes.ToList())
-                {
-                    usuario.MostrarNotificacoes();
-                }
-
-                // Limpe as notificações depois de exibi-las
-                usuario.Notificacoes.Clear();
-
-                // Aqui você pode continuar com o resto do seu código
-
-                return false;
-
-
-                */ UsuarioLogado = usuario;
                  return false;
             }
         }
@@ -248,7 +232,27 @@ namespace ProjetoCodex.Controller
 
             return new DateTime(anoNascimento, mesNascimento, diaNascimento);
         }
-       
+
+        public void AlterarNome(string novoNome)
+        {
+            Nome = novoNome;
+        }
+
+        public void AlterarDataNascimento(DateTime novaDataNascimento)
+        {
+            DataDeNascimento = novaDataNascimento;
+        }
+
+        public void AlterarEmail(string novoEmail)
+        {
+            Email = novoEmail;
+        }
+
+        public void AdicionarBio(string novaBio)
+        {
+            Bio = novaBio;
+        }
+
     }
    
 }

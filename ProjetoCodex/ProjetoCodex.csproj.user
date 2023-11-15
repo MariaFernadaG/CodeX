@@ -10,6 +10,9 @@
     <Compile Update="ConfiguracaoPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="EditarPerfil.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="LogoutPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -34,6 +37,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="ConfiguracaoPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EditarPerfil.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="LogoutPage.xaml">

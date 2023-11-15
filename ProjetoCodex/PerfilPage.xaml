@@ -31,6 +31,16 @@
         <Button Content="CONFIGURAÇÃO" HorizontalAlignment="Left" Margin="97,558,0,0" VerticalAlignment="Top" Width="123" Height="42" Click="Button_Click_2"/>
         <Button Content="Notificação" HorizontalAlignment="Left" Margin="97,496,0,0" VerticalAlignment="Top" Width="123" Height="39" Click="Button_Click_3"/>
         <Button Content="HOME" HorizontalAlignment="Left" Margin="68,0,0,0" VerticalAlignment="Top" Width="140" Height="93" Click="Button_Click_4"/>
+        <ListBox Name="lstComentarios" ItemsSource="{Binding PostagensDoUsuarioLogado}" Margin="325,290,278,10">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Autor}" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Conteudo}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
     </Grid>
 </Window>

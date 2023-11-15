@@ -45,6 +45,7 @@
                                         
                                         <TextBlock Text="{Binding Autor}" FontWeight="Bold"/>
                                         <TextBlock Text="{Binding Texto}" Margin="5,0,0,0"/>
+                                        
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
@@ -76,18 +77,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox x:Name="ListSNotificacoes" Margin="1038,360,21,84" ItemsSource="{Binding SolicitacoesAmizadePendente}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding NomeRemetenteSolicitacao}" Margin="10,0,10,0" VerticalAlignment="Center" />
-                        <Button Content="Aceitar Solicitação" Tag="{Binding NomeRemetenteSolicitacao}" />
-                        <Button Content="Negar Solicitação" Tag="{Binding NomeRemetenteSolicitacao}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-
+        
 
 
     </Grid>

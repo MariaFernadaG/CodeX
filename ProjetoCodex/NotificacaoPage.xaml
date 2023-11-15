@@ -15,6 +15,16 @@
         <Button Content="Configuração" HorizontalAlignment="Left" Margin="104,563,0,0" VerticalAlignment="Top" Width="112" Height="51" Click="Button_Click_1"/>
         <Button Content="Perfil" HorizontalAlignment="Left" Margin="104,432,0,0" VerticalAlignment="Top" Width="112" Height="51" Click="Button_Click"/>
         <Button Content="HOME" HorizontalAlignment="Left" Margin="67,0,0,0" VerticalAlignment="Top" Height="94" Width="143" Click="Button_Click_3"/>
-        
+        <ListBox x:Name="ListSNotificacoes" Margin="348,108,238,108" ItemsSource="{Binding SolicitacoesAmizadePendentes}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Remetente.Nome}" Margin="10,0,10,0" VerticalAlignment="Center" />
+                        <Button Content="Aceitar Solicitação" Tag="{Binding Remetente}" />
+                        <Button Content="Aceitar Solicitação" Tag="{Binding Remetente}" Click="AceitarSolicitacao_Click" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

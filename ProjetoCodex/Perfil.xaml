@@ -7,9 +7,11 @@
         mc:Ignorable="d"
         Title="Perfil" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Margin="84,61,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="84,108,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtBio" HorizontalAlignment="Left" Margin="84,152,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textNovoNome" HorizontalAlignment="Left" Margin="84,61,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBoxNovoEmail" HorizontalAlignment="Left" Margin="84,108,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBoxNovaBio" HorizontalAlignment="Left" Margin="84,152,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btn_Editar" Content="Button" HorizontalAlignment="Left" Margin="425,244,0,0" VerticalAlignment="Top" Click="btn_Editar_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="124,254,0,0" VerticalAlignment="Top" Click="Button_Click"/>
 
     </Grid>
 </Window>

@@ -60,7 +60,7 @@ namespace ProjetoCodex
             Usuario usuarioLogado = Usuario.UsuarioLogado;
 
             // Preencha o ListBox com os usuários excluindo o usuário logado.
-            ListSugestoes.ItemsSource = Usuario.listausuario.Where(u => u != usuarioLogado);
+            ListSugestoes.ItemsSource = Usuario.listausuario.Where(u => u != UsuarioLogado);
            
 
 
@@ -217,6 +217,9 @@ namespace ProjetoCodex
 
             }
          }
+       
+
+
             private void ExcluirPostagemButton_Click(object sender, RoutedEventArgs e)
         {
             Button excluirButton = (Button)sender;
@@ -298,12 +301,12 @@ namespace ProjetoCodex
 
         public void PreencherListBoxComUsuarios(ListBox listBox)
         {
-            //listBox.Items.Clear(); // Limpa a ListBox para evitar duplicatas
+            
 
             foreach (Usuario usuario in Usuario.listausuario)
             {
                 ListSugestoes.Items.Add(usuario.Nome);
-                ListSugestoes.Items.Add(usuario.ID);// Adiciona o nome do usuário à ListBox
+                ListSugestoes.Items.Add(usuario.ID);
 
                
             }
@@ -331,11 +334,11 @@ namespace ProjetoCodex
             {
                 // Adicione o comentário à listbox
                 listaPostagens.Items.Add(comentarioTextBox.Text);
-
-                // Limpe o TextBox após adicionar o comentário
                 comentarioTextBox.Text = string.Empty;
             }
         }
+       
+
         private void SolicitarAmizade_Click(object sender, RoutedEventArgs e)
         {
              Usuario usuarioSelecionado = (Usuario)ListSugestoes.SelectedItem;
@@ -353,10 +356,16 @@ namespace ProjetoCodex
 
 
 
-                     // Atualize a ListBox com a nova fonte de dados
-                     ListSugestoes.ItemsSource = Usuario.listausuario.Where(u => u != Usuario.UsuarioLogado).ToList();
+                    // Atualize a ListBox com a nova fonte de dados
+                    // ListSugestoes.ItemsSource = Usuario.listausuario.Where(u => u != Usuario.UsuarioLogado).ToList();
+                    List<Usuario> novaListaUsuarios = Usuario.listausuario
+                   .Where(u => u != Usuario.UsuarioLogado && u != usuarioSelecionado)
+                   .ToList();
 
-                 }
+                    // Atualize a ListBox com a nova fonte de dados
+                    ListSugestoes.ItemsSource = novaListaUsuarios;
+
+                }
                  else
                  {
                      MessageBox.Show("Você já enviou uma solicitação de amizade para " + usuarioSelecionado.Nome);

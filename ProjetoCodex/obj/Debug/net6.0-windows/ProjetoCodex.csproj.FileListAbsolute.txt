@@ -148,3 +148,5 @@ C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.pdb
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.genruntimeconfig.cache
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ref\ProjetoCodex.dll
+C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\EditarPerfil.g.cs
+C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\EditarPerfil.baml

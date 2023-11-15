@@ -23,9 +23,33 @@ namespace ProjetoCodex
         public Perfil()
         {
             InitializeComponent();
-            txtNome.Text = Usuario.UsuarioLogado.Nome;
-            txtEmail.Text = Usuario.UsuarioLogado.Email;
-            txtBio.Text = Usuario.UsuarioLogado.Email;
+            textNovoNome.Text = Usuario.UsuarioLogado.Nome;
+            textBoxNovoEmail.Text = Usuario.UsuarioLogado.Email;
+            textBoxNovaBio.Text = " ";
+
+        }
+
+
+        private void btn_Editar_Click(object sender, RoutedEventArgs e)
+        {
+            /*Usuario usuarioLogado = ;
+
+            // Alterar o nome do usuário
+            usuarioLogado.AlterarNome(textNovoNome.Text);
+
+            // Alterar a data de nascimento do usuário
+            //DateTime novaDataNascimento = /* Lógica para converter o texto da data de nascimento ;
+            usuarioLogado.AlterarDataNascimento(novaDataNascimento);
+
+            // Alterar o email do usuário
+            usuarioLogado.AlterarEmail(textBoxNovoEmail.Text);*/
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PerfilPage page = new PerfilPage();
+            page.Show();
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows;
 
 namespace ProjetoCodex.Controller
@@ -13,6 +14,7 @@ namespace ProjetoCodex.Controller
 
         public ObservableCollection<Usuario> LikedByUsers { get; set; } = new ObservableCollection<Usuario>();
         public ObservableCollection<Usuario> DislikedByUsers { get; set; } = new ObservableCollection<Usuario>();
+       
 
         public class Comentario
         {
@@ -23,7 +25,7 @@ namespace ProjetoCodex.Controller
         //public List<Comentario> Comentarios { get; set; } = new List<Comentario>();
         public ObservableCollection<Comentario> Comentarios { get; set; } = new ObservableCollection<Comentario>();
 
-
+       
         public int Likes
         {
             get { return likes; }
@@ -73,7 +75,7 @@ namespace ProjetoCodex.Controller
             Likes = 0;
             Dislikes = 0;
         }
-
+       
         public static void AdicionarPostagemAutorConteudo(string Autor, string Conteudo)
         {
             Postagem novaPostagem = new Postagem(Autor, Conteudo);
@@ -85,6 +87,8 @@ namespace ProjetoCodex.Controller
         {
             return postagens;
         }
+        
+
 
         public static void ExcluirPostagemEspecifica(Postagem postagem)
         {

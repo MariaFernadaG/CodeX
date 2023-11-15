@@ -33,7 +33,7 @@ namespace ProjetoCodex
 
 
         }
-
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             PerfilPage perfilPage = new PerfilPage();
@@ -63,10 +63,39 @@ namespace ProjetoCodex
         public void PreencherListBoxComUsuarios(ListBox ListSolicitacoes)
         {
 
-         
+            foreach (var notificacao in Usuario.UsuarioLogado.Notificacoes)
+            {
+                ListSNotificacoes.Items.Add(notificacao.Remetente);
+
+            }
 
         }
+        private void AceitarSolicitacao_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Usuario remetente = button?.Tag as Usuario;
 
+            if (remetente != null)
+            {
+                // Aceitar a solicitação de amizade
+                Usuario.UsuarioLogado.AceitarSolicitacaoAmizade(remetente);
+
+                // Remover a notificação da lista
+                Notificacao notificacao = Usuario.UsuarioLogado.Notificacoes.FirstOrDefault(n => n.Remetente == remetente);
+                if (notificacao != null)
+                {
+                    Usuario.UsuarioLogado.Notificacoes.Remove(notificacao);
+                }
+
+                // Atualizar a interface do usuário
+                AtualizarSolicitacoesAmizade();
+            }
+        }
+        private void AtualizarSolicitacoesAmizade()
+        {
+            ListSNotificacoes.ItemsSource = null;
+            ListSNotificacoes.ItemsSource = Usuario.UsuarioLogado.SolicitacoesAmizadePendentes;
+        }
     }
 }
 

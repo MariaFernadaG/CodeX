@@ -1,6 +1,10 @@
 ﻿using ProjetoCodex.Controller;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Linq;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -8,18 +12,29 @@ namespace ProjetoCodex
 {
     public partial class PerfilPage : Window
     {
+        public ObservableCollection<Postagem> PostagensDoUsuarioLogado { get; set; }
         private static List<Window> janelasAbertas = new List<Window>();
-
+      
         public PerfilPage()
         {
             InitializeComponent();
             txtEmail.Text = Usuario.UsuarioLogado.Email;
             txtNome.Text = Usuario.UsuarioLogado.Nome;
             txtIdade.Text = Usuario.UsuarioLogado.DataDeNascimento.ToString();
+            PostagensDoUsuarioLogado = new ObservableCollection<Postagem>();
 
+            // Preenche a lista de postagens do usuário logado
+            foreach (var postagem in Postagem.postagens.Where(p => p.Autor == Usuario.UsuarioLogado.Nome))
+            {
+               
+                PostagensDoUsuarioLogado.Add(postagem);
+            }
+
+            // Defina o DataContext para a instância da PerfilPage
+            DataContext = this;
 
         }
-
+       
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             PerfilPage perfilPage = new PerfilPage();
@@ -57,5 +72,7 @@ namespace ProjetoCodex
             telaAcesso2.Show();
             this.Close();
         }
+       
     }
+    
 }
