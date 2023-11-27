@@ -34,26 +34,9 @@ namespace ProjetoCodex.Controller
         {
             foreach (var notificacao in Usuario.UsuarioLogado.Notificacoes)
             {
-                MessageBoxResult result = MessageBox.Show(notificacao.Mensagem, "Confirmação", MessageBoxButton.YesNo);
-                // Verificar a resposta do usuário
-                if (result == MessageBoxResult.Yes)
-                {
-                   
-                    // Remova a postagem da fonte de dados
-                    MessageBox.Show("Solicitação aceita.");
-                  
-
-
-
-                }
-            else
-            {
-                MessageBox.Show("Solitição recusada.");
+            // chama tela de notificao e exibi-la no home 
             }
-        }
-
-            // Limpe as notificações depois de exibi-las
-            Usuario.UsuarioLogado.Notificacoes.Clear();
+            
         }
 
         // Método para enviar uma solicitação de amizade
@@ -65,8 +48,8 @@ namespace ProjetoCodex.Controller
                 SolicitacoesAmizadePendentes.Add(amigo);
                 amigo.NomeRemetenteSolicitacao = Nome;
 
-                // Adicione uma notificação ao usuário de destino
-               amigo.Notificacoes.Add(new Notificacao($"{Nome} enviou uma solicitação de amizade."));
+                string mensagem = $"{Nome} enviou uma solicitação de amizade.";
+                amigo.Notificacoes.Add(new Notificacao(mensagem));
             }
         }
         public void AceitarSolicitacaoAmizade(Usuario amigo)
@@ -117,8 +100,8 @@ namespace ProjetoCodex.Controller
                 Nome = "Maria Fernanda Guedes",
                 DataDeNascimento = new DateTime(2003, 1, 1),  // Use a data de nascimento correta
                 Email = "Maria@gmail.com",
-                Senha = "123"
-
+                Senha = "123",
+                 Bio="Desenvolvedora back end"
             },
             new Usuario
             {
@@ -126,7 +109,8 @@ namespace ProjetoCodex.Controller
                 Nome = "Pedro Luiz",
                 DataDeNascimento = new DateTime(2002, 1, 1),  // Use a data de nascimento correta
                 Email = "Pedro@gmail.com",
-                Senha = "123"
+                Senha = "123",
+                Bio="Desenvolvedor back end"
             }
         };
 
@@ -197,6 +181,22 @@ namespace ProjetoCodex.Controller
             else
             {
                 Usuario.UsuarioLogado = usuario;
+
+                /*/ Exiba as notificações, se houver alguma
+                foreach (var notificacao in usuario.Notificacoes.ToList())
+                {
+                    usuario.MostrarNotificacoes();
+                }
+
+                // Limpe as notificações depois de exibi-las
+                usuario.Notificacoes.Clear();
+
+                // Aqui você pode continuar com o resto do seu código
+
+                return false;
+
+
+                */ UsuarioLogado = usuario;
                  return false;
             }
         }
@@ -232,25 +232,22 @@ namespace ProjetoCodex.Controller
 
             return new DateTime(anoNascimento, mesNascimento, diaNascimento);
         }
-
-        public void AlterarNome(string novoNome)
+        // Edita os dados do usuário
+        public static void EditarUsuario(Usuario usuarioLogado, string? nome)
         {
-            Nome = novoNome;
+            usuarioLogado.Nome = nome;
+            
+
+
+            MessageBox.Show("Nome alterado editado com sucesso!");
         }
-
-        public void AlterarDataNascimento(DateTime novaDataNascimento)
+        public static void EditarBio(Usuario usuarioLogado, string? bio)
         {
-            DataDeNascimento = novaDataNascimento;
-        }
+            usuarioLogado.Bio = bio;
 
-        public void AlterarEmail(string novoEmail)
-        {
-            Email = novoEmail;
-        }
 
-        public void AdicionarBio(string novaBio)
-        {
-            Bio = novaBio;
+
+            MessageBox.Show("Bio editada com sucesso!");
         }
 
     }

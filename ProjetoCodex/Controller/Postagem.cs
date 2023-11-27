@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Windows;
 
 namespace ProjetoCodex.Controller
@@ -11,10 +10,10 @@ namespace ProjetoCodex.Controller
     {
         private int likes;
         private int dislikes;
+        
 
         public ObservableCollection<Usuario> LikedByUsers { get; set; } = new ObservableCollection<Usuario>();
         public ObservableCollection<Usuario> DislikedByUsers { get; set; } = new ObservableCollection<Usuario>();
-       
 
         public class Comentario
         {
@@ -22,10 +21,8 @@ namespace ProjetoCodex.Controller
             public string Texto { get; set; }
         }
 
-        //public List<Comentario> Comentarios { get; set; } = new List<Comentario>();
-        public ObservableCollection<Comentario> Comentarios { get; set; } = new ObservableCollection<Comentario>();
+        public List<Comentario> Comentarios { get; set; } = new List<Comentario>();
 
-       
         public int Likes
         {
             get { return likes; }
@@ -63,8 +60,6 @@ namespace ProjetoCodex.Controller
 
         public static List<Postagem> postagens { get; set; } = new List<Postagem>();
 
-        
-
         public static event Action OnPostagensChanged;
 
         public Postagem(string Autor, string Conteudo)
@@ -75,7 +70,7 @@ namespace ProjetoCodex.Controller
             Likes = 0;
             Dislikes = 0;
         }
-       
+
         public static void AdicionarPostagemAutorConteudo(string Autor, string Conteudo)
         {
             Postagem novaPostagem = new Postagem(Autor, Conteudo);
@@ -87,8 +82,6 @@ namespace ProjetoCodex.Controller
         {
             return postagens;
         }
-        
-
 
         public static void ExcluirPostagemEspecifica(Postagem postagem)
         {
@@ -99,13 +92,13 @@ namespace ProjetoCodex.Controller
             }
         }
 
-        public  void AdicionarComentario(string Autor, string Texto)
+        public void AdicionarComentario(string nome, string texto)
         {
-            
-            Comentarios.Add(new Comentario { Autor = Autor, Texto = Texto });
+            Comentarios.Add(new Comentario { Autor = nome, Texto = texto });
             OnPostagensChanged?.Invoke();
-        }
 
+        }
+       
         public static void ExcluirPostagem(Postagem postagem)
         {
             postagens.Remove(postagem);

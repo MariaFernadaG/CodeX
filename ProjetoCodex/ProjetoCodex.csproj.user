@@ -10,7 +10,7 @@
     <Compile Update="ConfiguracaoPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="EditarPerfil.xaml.cs">
+    <Compile Update="Controller\TelaNotificao.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="LogoutPage.xaml.cs">
@@ -39,7 +39,7 @@
     <Page Update="ConfiguracaoPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="EditarPerfil.xaml">
+    <Page Update="Controller\TelaNotificao.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="LogoutPage.xaml">

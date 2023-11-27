@@ -1,4 +1,5 @@
-﻿using ProjetoCodex.Controller;
+﻿using MaterialDesignThemes.Wpf;
+using ProjetoCodex.Controller;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -25,13 +26,13 @@ namespace ProjetoCodex
     {
         private DispatcherTimer timer;
         public ObservableCollection<Postagem> Postagens { get; set; } = new ObservableCollection<Postagem>();
-       
+
 
 
         private TextBox comentarioTextBox;
 
         private int maxLikesPerPost = 1;
-       
+
 
         public ObservableCollection<Usuario> Usuarios { get; set; }
         public TelaAcesso2()
@@ -39,7 +40,7 @@ namespace ProjetoCodex
             InitializeComponent();
             txtEmail.Text = Usuario.UsuarioLogado.Email;
             txtNome.Text = Usuario.UsuarioLogado.Nome;
-            txtIdade.Text = Usuario.UsuarioLogado.DataDeNascimento.ToString();
+            
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += DispatcherTimer_Tick;
@@ -61,7 +62,7 @@ namespace ProjetoCodex
 
             // Preencha o ListBox com os usuários excluindo o usuário logado.
             ListSugestoes.ItemsSource = Usuario.listausuario.Where(u => u != UsuarioLogado);
-           
+
 
 
 
@@ -185,7 +186,7 @@ namespace ProjetoCodex
         }
         private void EnviarComentarioButton_Click(object sender, RoutedEventArgs e)
         { /// Obtenha a postagem selecionada
-           
+
 
             Button button = sender as Button;
             if (button != null)
@@ -198,17 +199,17 @@ namespace ProjetoCodex
                     {
                         string textoComentario = comentarioTextBox.Text;
                         // Faça algo com o texto do comentário...
-                       
+
                         string autor = UsuarioLogado.Nome;
                         string texto = comentarioTextBox.Text;
-                      
+
                         Button adicionarComentarioButton = (Button)sender;
 
                         // A partir do botão, obtenha a postagem à qual deseja adicionar um comentário
                         Postagem postagem = (Postagem)adicionarComentarioButton.DataContext;
 
                         // Aqui, você pode obter o autor e texto do comentário de alguma entrada do usuário, por exemplo:
-                       
+
                         // Chame o método AdicionarComentario da postagem para adicionar o novo comentário
                         postagem.AdicionarComentario(autor, texto);
                     }
@@ -216,11 +217,11 @@ namespace ProjetoCodex
 
 
             }
-         }
-       
+        }
 
 
-            private void ExcluirPostagemButton_Click(object sender, RoutedEventArgs e)
+
+        private void ExcluirPostagemButton_Click(object sender, RoutedEventArgs e)
         {
             Button excluirButton = (Button)sender;
             Postagem postagem = (Postagem)excluirButton.DataContext;
@@ -243,7 +244,7 @@ namespace ProjetoCodex
             {
                 MessageBox.Show("Você não tem permissão para excluir esta postagem.");
             }
-          
+
         }
         private void AtualizarPostagens()
         {
@@ -301,24 +302,18 @@ namespace ProjetoCodex
 
         public void PreencherListBoxComUsuarios(ListBox listBox)
         {
-            
+
 
             foreach (Usuario usuario in Usuario.listausuario)
             {
                 ListSugestoes.Items.Add(usuario.Nome);
+                ListSugestoes.Items.Add(usuario.Bio);
                 ListSugestoes.Items.Add(usuario.ID);
 
-               
+
             }
         }
-        public void PreencherListBoxComSolicitacoes(ListBox ListSNotificacoes)
-        {
-          
-
-            
-
-
-        }
+      
         private void listboxSugestao_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -337,22 +332,22 @@ namespace ProjetoCodex
                 comentarioTextBox.Text = string.Empty;
             }
         }
-       
+
 
         private void SolicitarAmizade_Click(object sender, RoutedEventArgs e)
         {
-             Usuario usuarioSelecionado = (Usuario)ListSugestoes.SelectedItem;
+            Usuario usuarioSelecionado = (Usuario)ListSugestoes.SelectedItem;
 
-             if (usuarioSelecionado != null)
-             {
-                 // Verifique se já existe uma solicitação de amizade pendente
-                 if (!Usuario.UsuarioLogado.SolicitacoesAmizadePendentes.Contains(usuarioSelecionado))
-                 {
-                     // Envie a solicitação de amizade para o usuário selecionado
-                     Usuario.UsuarioLogado.EnviarSolicitacaoAmizade(usuarioSelecionado);
+            if (usuarioSelecionado != null)
+            {
+                // Verifique se já existe uma solicitação de amizade pendente
+                if (!Usuario.UsuarioLogado.SolicitacoesAmizadePendentes.Contains(usuarioSelecionado))
+                {
+                    // Envie a solicitação de amizade para o usuário selecionado
+                    Usuario.UsuarioLogado.EnviarSolicitacaoAmizade(usuarioSelecionado);
 
-                     // Atualize a interface do usuário ou forneça um feedback adequado
-                     MessageBox.Show("Solicitação de amizade enviada para " + usuarioSelecionado.Nome);
+                    // Atualize a interface do usuário ou forneça um feedback adequado
+                    MessageBox.Show("Solicitação de amizade enviada para " + usuarioSelecionado.Nome);
 
 
 
@@ -366,16 +361,48 @@ namespace ProjetoCodex
                     ListSugestoes.ItemsSource = novaListaUsuarios;
 
                 }
-                 else
-                 {
-                     MessageBox.Show("Você já enviou uma solicitação de amizade para " + usuarioSelecionado.Nome);
-                 }
-          
+                else
+                {
+                    MessageBox.Show("Você já enviou uma solicitação de amizade para " + usuarioSelecionado.Nome);
+                }
+
             }
-           
+
         }
 
-       
+
+
+        public bool IsDarkTheme { get; set; }
+        private readonly PaletteHelper paletteHelper = new PaletteHelper();
+
+        private void toggleTheme(object sender, RoutedEventArgs e)
+        {
+            ITheme theme = paletteHelper.GetTheme();
+
+            if (IsDarkTheme = theme.GetBaseTheme() == BaseTheme.Dark)
+            {
+                IsDarkTheme = false;
+                theme.SetBaseTheme(Theme.Light);
+            }
+            else
+            {
+                IsDarkTheme = true;
+                theme.SetBaseTheme(Theme.Dark);
+            }
+            paletteHelper.SetTheme(theme);
+        }
+
+        private void exitApp(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+            DragMove();
+        }
+
     }
 }
     

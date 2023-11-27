@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\ProjetoCodex\App.xaml
-10-886588147
+101648723351
 
-221758912489
-194726069201
-ConfiguracaoPage.xaml;EditarPerfil.xaml;LogoutPage.xaml;MainWindow.xaml;NotificacaoPage.xaml;Perfil.xaml;PerfilPage.xaml;TelaAcesso1.xaml;TelaAcesso2.xaml;Window1.xaml;
+21489422997
+1961355206546
+ConfiguracaoPage.xaml;Controller\TelaNotificao.xaml;LogoutPage.xaml;MainWindow.xaml;NotificacaoPage.xaml;Perfil.xaml;PerfilPage.xaml;TelaAcesso1.xaml;TelaAcesso2.xaml;Window1.xaml;
 
 True
 

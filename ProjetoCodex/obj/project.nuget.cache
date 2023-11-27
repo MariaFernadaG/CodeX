@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "rarmBSLkrRq15qBWMO2f3SDWpCzsly06NKn0xrbdLxPTBY/B2WS5t70rn331HUzWmsm0hqKxziWO2GxcbDCa6g==",
+  "dgSpecHash": "spnp1DxZfGp21MiOE54d37157WycorMYvrwMpkhO8QwaAAvNq/WjiUbg1B/YUmCY/rPmROYMrQt+FkXIAT2sEQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\maria\\Downloads\\ProjetoCodex (1)\\ProjetoCodex\\ProjetoCodex\\CodeX\\CodeX\\ProjetoCodex\\ProjetoCodex.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\maria\\.nuget\\packages\\materialdesigncolors\\2.0.1\\materialdesigncolors.2.0.1.nupkg.sha512",
+    "C:\\Users\\maria\\.nuget\\packages\\materialdesignthemes\\4.1.0\\materialdesignthemes.4.1.0.nupkg.sha512"
+  ],
   "logs": []
 }

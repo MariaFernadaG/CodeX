@@ -3,27 +3,101 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:ProjetoCodex"
         mc:Ignorable="d"
-        Title="Window1" Height="720" Width="1280" Background="{x:Null}" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-    <Grid>
-        <Image HorizontalAlignment="Left" Height="720" Margin="10,0,0,0" VerticalAlignment="Top" Width="1280" Source="/TelaCadastro.jpg"/>
-        <PasswordBox x:Name="txtSenha" HorizontalAlignment="Left" Margin="799,436,0,0" VerticalAlignment="Top" Width="388" Height="32" Background="#FFD9D9D9" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" BorderBrush="{x:Null}" Opacity="0.5" FontSize="20" FontFamily="Arial"/>
-        <PasswordBox x:Name="txtSenhaconf" HorizontalAlignment="Left" Margin="799,511,0,0" VerticalAlignment="Top" Width="388" Height="33" Opacity="0.48" Background="#FFDADADA" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" BorderBrush="{x:Null}" FontFamily="Arial" FontSize="20"/>
-        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Margin="799,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="388" Height="36" Background="#FFD9D9D9" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Opacity="0.5" FontFamily="Arial" FontSize="20"/>
-        <TextBox x:Name="txtIdade" HorizontalAlignment="Left" Margin="799,286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Height="34" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Background="#FFD9D9D9" Opacity="0.5" FontFamily="Arial" FontSize="20"/>
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="799,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="388" Height="36" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Background="#FFD9D9D9" Opacity="0.5" Text="" FontFamily="Arial" FontSize="20"/>
-        <Button x:Name="btnCadastrar" Content="Button" HorizontalAlignment="Left" Margin="886,586,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="49" Width="207" Click="btnCadastrar_Click" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Opacity="0.1">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.579"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
+        Title="Window1" Height="720" Width="1280" Background="{x:Null}" WindowStartupLocation="CenterScreen"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}" WindowStyle="None"   AllowsTransparency="True">
+    <materialDesign:Card VerticalAlignment="Stretch" UniformCornerRadius="25">
+        <materialDesign:Card.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF240832" Offset="1"/>
+            </LinearGradientBrush>
+        </materialDesign:Card.Background>
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="177*"/>
+                <ColumnDefinition Width="143*"/>
+            </Grid.ColumnDefinitions>
 
 
-    </Grid>
+            <materialDesign:Card Grid.Column="0">
+                <Grid>
+                    <materialDesign:Card>
+                        <Image Margin="5 5 5 5" Source="Logocodex.png" Panel.ZIndex="1"/>
+                        <materialDesign:Card.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black"/>
+                                <GradientStop Color="#FF240832" Offset="1"/>
+                            </LinearGradientBrush>
+                        </materialDesign:Card.Background>
+                    </materialDesign:Card>
+                </Grid>
+            </materialDesign:Card>
+            <Grid Grid.Column="1">
+                <materialDesign:Card UniformCornerRadius="15"
+                                     Margin="25" Background="{DynamicResource MaterialDesignPaper}">
+
+                    <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHost">
+                        <StackPanel>
+                            <materialDesign:PopupBox HorizontalAlignment="Right" PlacementMode="BottomAndAlignRightEdges"
+                                                     StaysOpen="False" Height="50" Width="38">
+                                <StackPanel Margin="16 10 0 6" Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBlock VerticalAlignment="Center" Text="DarkMode" />
+                                    <ToggleButton Cursor="Hand" ToolTip="Ativar Modo Escuro" Margin="12 0 8 0"
+                                                  x:Name="themeToggle" IsChecked="{Binding IsDarkTheme}" Click="toggleTheme"/>
+                                    <Button x:Name="btn_exit" ToolTip="Fechar Programa" Content="Sair" Click="exitApp"/>
+                                </StackPanel>
+                            </materialDesign:PopupBox>
+
+                            <TextBlock HorizontalAlignment="Center" FontSize="42" Margin="0 0 0 0"
+                                       FontWeight="Bold" Text="CADASTRO">
+                            </TextBlock>
+                            <TextBox x:Name="txtNome" TextWrapping="Wrap" Margin="0 20 0 0"
+                                     Width="356" Height="65" Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                     BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="19"
+                                     materialDesign:HintAssist.Hint="Digite o Nome Completo." BorderThickness="2"
+                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="30" Cursor="IBeam" SelectionOpacity="5"/>
+                            <PasswordBox x:Name="txtSenha" Margin="0 10 0 0"  Width="356" Height="65" FontSize="19"
+                                         materialDesign:HintAssist.Hint="Digite a Senha" BorderThickness="2"
+                                         BorderBrush="{DynamicResource MaterialDesignDivider}"
+                                         Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+                                         materialDesign:TextFieldAssist.TextFieldCornerRadius="30" Cursor="IBeam"/>
+                            <PasswordBox x:Name="txtSenhaconf" Margin="0 10 0 0"  Width="356" Height="65" FontSize="19"
+                                         materialDesign:HintAssist.Hint="Confirme a Senha" BorderThickness="2"
+                                         BorderBrush="{DynamicResource MaterialDesignDivider}" 
+                                         Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+                                         materialDesign:TextFieldAssist.TextFieldCornerRadius="30" Cursor="IBeam"/>
+                            <TextBox x:Name="txtIdade" TextWrapping="Wrap" Margin="0 10 0 0"
+                                     Width="356" Height="65" Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                     BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="19"
+                                     materialDesign:HintAssist.Hint="Digite a Data de Nascimento." BorderThickness="2"
+                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="30" Cursor="IBeam" SelectionOpacity="5"/>
+                            <TextBox x:Name="txtEmail" TextWrapping="Wrap" Margin="0 10 0 0"
+                                     Width="356" Height="65" Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                     BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="19"
+                                     materialDesign:HintAssist.Hint="Digite o E-Mail." BorderThickness="2"
+                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="30" Cursor="IBeam" SelectionOpacity="5"/>
+                            <Button x:Name="btnCadastrar" Click="btnCadastrar_Click" Margin="0 20 0 0" Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                                    Content="CADASTRAR" Height="51" Width="200" materialDesign:ShadowAssist.ShadowDepth="Depth4"
+                                    materialDesign:ButtonAssist.CornerRadius="25" FontSize="18" >
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF6D05DF" Offset="0.295"/>
+                                        <GradientStop Color="#FFBF0BD4" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                            <Button Margin="0 20 0 0" Content="Já tenho uma conta" materialDesign:ButtonAssist.CornerRadius="25"
+                                    Width="190" FontSize="16" Click="Button_Click" materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                                    Height="49" Style="{StaticResource MaterialDesignFlatButton}" Cursor="IBeam" Foreground="#FF9B78D8">
+                            </Button>
+                        </StackPanel>
+                    </materialDesign:DialogHost>
+                </materialDesign:Card>
+            </Grid>
+        </Grid>
+    </materialDesign:Card>
 </Window>

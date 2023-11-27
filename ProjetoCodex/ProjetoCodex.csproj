@@ -12,6 +12,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="AddButton.png" />
+    <None Remove="ConfigButtonOFF.png" />
+    <None Remove="ConfigButtonON.png" />
+    <None Remove="dislikeButton.png" />
+    <None Remove="homeButton.png" />
     <None Remove="ImageBotaoLogout.png" />
     <None Remove="ImageBotaoPerfil.png" />
     <None Remove="ImageBotaoPublicacao.png" />
@@ -19,6 +24,15 @@
     <None Remove="imagem entrar login.jpg" />
     <None Remove="imagem fundo cadastro.png" />
     <None Remove="imagem fundo login.jpeg" />
+    <None Remove="likeButton.png" />
+    <None Remove="Logocodex.png" />
+    <None Remove="LogoutButtonOFF.png" />
+    <None Remove="LogoutButtonON.png" />
+    <None Remove="NotifButtonOFF.png" />
+    <None Remove="NotifButtonON.png" />
+    <None Remove="PerfilButtonOFF.png" />
+    <None Remove="PerfilButtonON.png" />
+    <None Remove="PrototConfig.png" />
     <None Remove="TelaCadastro.jpg" />
     <None Remove="TelaNotificacao.png" />
     <None Remove="TelaPerfilUser.png" />
@@ -30,6 +44,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="AddButton.png" />
+    <Resource Include="ConfigButtonOFF.png" />
+    <Resource Include="ConfigButtonON.png" />
+    <Resource Include="dislikeButton.png" />
+    <Resource Include="homeButton.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="ImageBotaoLogout.png" />
     <Resource Include="ImageBotaoPerfil.png" />
     <Resource Include="ImageBotaoPublicacao.png" />
@@ -37,6 +63,15 @@
     <Resource Include="imagem entrar login.jpg" />
     <Resource Include="imagem fundo cadastro.png" />
     <Resource Include="imagem fundo login.jpeg" />
+    <Resource Include="likeButton.png" />
+    <Resource Include="Logocodex.png" />
+    <Resource Include="LogoutButtonOFF.png" />
+    <Resource Include="LogoutButtonON.png" />
+    <Resource Include="NotifButtonOFF.png" />
+    <Resource Include="NotifButtonON.png" />
+    <Resource Include="PerfilButtonOFF.png" />
+    <Resource Include="PerfilButtonON.png" />
+    <Resource Include="PrototConfig.png" />
     <Resource Include="TelaCadastro.jpg" />
     <Resource Include="TelaNotificacao.png" />
     <Resource Include="TelaPerfilUser.png" />

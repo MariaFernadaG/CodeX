@@ -13,10 +13,8 @@ namespace ProjetoCodex.Controller
 
         public Notificacao(string mensagem)
         {
-            // Remetente = remetente;
             Mensagem = mensagem;
-           
-            
+            Remetente = Remetente;
         }
     }
 }
