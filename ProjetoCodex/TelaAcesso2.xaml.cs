@@ -78,14 +78,19 @@ namespace ProjetoCodex
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Postagem.AdicionarPostagemAutorConteudo(txtNome.Text, campoMensagem.Text);
-            campoMensagem.Text = "";
+            if (!string.IsNullOrEmpty(campoMensagem.Text))
+            {
+                Postagem.AdicionarPostagemAutorConteudo(txtNome.Text, campoMensagem.Text);
+                campoMensagem.Text = "";
+            }
         }
 
         private void botaoEnviarPublicacao_Click(object sender, RoutedEventArgs e)
         {
-            Postagem.AdicionarPostagemAutorConteudo(txtNome.Text, campoMensagem.Text);
-            campoMensagem.Text = "";
+            
+                Postagem.AdicionarPostagemAutorConteudo(txtNome.Text, campoMensagem.Text);
+                campoMensagem.Text = "";
+            
         }
 
         private void listaPostagens_SelectionChanged(object sender, SelectionChangedEventArgs e)

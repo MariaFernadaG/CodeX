@@ -32,7 +32,7 @@ namespace ProjetoCodex
             InitializeComponent();
             txtEmail.Text = Usuario.UsuarioLogado.Email;
             txtNome.Text = Usuario.UsuarioLogado.Nome;
-            txtIdade.Text = Usuario.UsuarioLogado.DataDeNascimento.ToString();
+           
 
             //Usuario.UsuarioLogado.MostrarNotificacoesPublico();
 

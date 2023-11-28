@@ -68,7 +68,7 @@
                     <StackPanel Cursor="Hand" Margin="0 0 0 0" RenderTransformOrigin="0.5,0.5">
                         <TextBox x:Name="txtEmail" TextWrapping="Wrap" Width="120" Height="50" Margin="0 100 0 0"/>
                         <TextBox x:Name="txtNome" TextWrapping="Wrap" Width="120" Height="50" Margin="0 10 0 0"/>
-                        <TextBox x:Name="txtIdade" TextWrapping="Wrap" Width="120" Height="50" Margin="0 10 0 0"/>
+                        
                         <Button Content="Button" ToolTip="Perfil" Margin="0 25 0 0" Height="37" Width="129" BorderBrush="{x:Null}" Foreground="{x:Null}" materialDesign:ShadowAssist.ShadowDepth="Depth2" Click="Button_Click">
                             <Button.Background>
                                 <ImageBrush ImageSource="/PerfilButtonOFF.png"/>
@@ -101,7 +101,7 @@
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="{Binding Nome}" Margin="10,0,10,0" VerticalAlignment="Center" />
-                                        <TextBlock Text="{Binding Bio}" Margin="10,0,10,0" VerticalAlignment="Center" />
+                                        <TextBlock Text="{Binding Bio}"  Margin="-70,30,0,0" VerticalAlignment="Center" />
                                         <Button Content="" ToolTip="Solicitar Amizade" Click="SolicitarAmizade_Click" Tag="{Binding Nome}" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="86" Cursor="Hand" >
                                             <Button.Background>
                                                 <ImageBrush ImageSource="/AddButton.png" Stretch="Uniform"/>

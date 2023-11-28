@@ -237,3 +237,10 @@ C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.csproj.CopyComplete
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Controller\TelaNotificao.g.cs
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Controller\TelaNotificao.baml
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\bin\Debug\net6.0-windows\MaterialDesignColors.dll
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\bin\Debug\net6.0-windows\MaterialDesignThemes.Wpf.dll
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.csproj.AssemblyReference.cache
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Controller\TelaNotificao.g.cs
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\App.baml
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Controller\TelaNotificao.baml
+C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.csproj.CopyComplete
