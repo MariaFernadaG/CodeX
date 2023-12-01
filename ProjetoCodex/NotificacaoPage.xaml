@@ -120,13 +120,21 @@
                 <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHost">
                     <StackPanel Cursor="Hand">
 
-                        <ListBox x:Name="ListSNotificacoes" Margin="0,130,0,108" Width="500" Height="400">
+                        <ListBox x:Name="ListSNotificacoes" Margin="0,130,0,108" Width="500" Height="400" d:ItemsSource="{d:SampleData ItemCount=5}" Cursor="Hand">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel>
-                                        <TextBlock Text="{Binding Mensagem}" />
-                                        <Button Content="Aceitar" Click="AceitarButton_Click" />
-                                        <Button Content="Recusar" Click="RecusarButton_Click" />
+                                        <TextBlock Text="{Binding Mensagem}" Cursor="Hand" FontFamily="Product Sans" FontSize="15"/>
+                                        <Button ToolTip="Aceitar Solicitação" Click="AceitarButton_Click" Cursor="Hand" BorderBrush="{x:Null}" >
+                                            <Button.Background>
+                                                <ImageBrush ImageSource="/AceitarBtn.png" Stretch="Uniform"/>
+                                            </Button.Background>
+                                        </Button>
+                                        <Button ToolTip="Recusar Solicitação" Click="RecusarButton_Click" Cursor="Hand" BorderBrush="{x:Null}" >
+                                            <Button.Background>
+                                                <ImageBrush ImageSource="/NegarBtn.png" Stretch="Uniform"/>
+                                            </Button.Background>
+                                        </Button>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>

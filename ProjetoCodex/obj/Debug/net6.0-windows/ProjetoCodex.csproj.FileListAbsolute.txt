@@ -244,3 +244,46 @@ C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-w
 C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\App.baml
 C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Controller\TelaNotificao.baml
 C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.csproj.CopyComplete
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\bin\Debug\net6.0-windows\ProjetoCodex.exe
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\bin\Debug\net6.0-windows\ProjetoCodex.deps.json
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\bin\Debug\net6.0-windows\ProjetoCodex.runtimeconfig.json
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\bin\Debug\net6.0-windows\ProjetoCodex.dll
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\bin\Debug\net6.0-windows\ProjetoCodex.pdb
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\bin\Debug\net6.0-windows\MaterialDesignColors.dll
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\bin\Debug\net6.0-windows\MaterialDesignThemes.Wpf.dll
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ConfiguracaoPage.g.cs
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Controller\TelaNotificao.g.cs
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\LogoutPage.g.cs
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\NotificacaoPage.g.cs
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Perfil.g.cs
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\PerfilPage.g.cs
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\TelaAcesso1.g.cs
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\TelaAcesso2.g.cs
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Window1.g.cs
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex_MarkupCompile.cache
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex_MarkupCompile.lref
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\App.baml
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ConfiguracaoPage.baml
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Controller\TelaNotificao.baml
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\LogoutPage.baml
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\NotificacaoPage.baml
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Perfil.baml
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\PerfilPage.baml
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\TelaAcesso1.baml
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\TelaAcesso2.baml
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Window1.baml
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.g.resources
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.AssemblyInfo.cs
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.csproj.CopyComplete
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.dll
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\refint\ProjetoCodex.dll
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.pdb
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.genruntimeconfig.cache
+C:\Users\User\Desktop\CODEXFINAL\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ref\ProjetoCodex.dll

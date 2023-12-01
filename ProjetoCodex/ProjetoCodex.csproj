@@ -12,11 +12,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="AceitarBtn.png" />
     <None Remove="AddButton.png" />
     <None Remove="ConfigButtonOFF.png" />
     <None Remove="ConfigButtonON.png" />
     <None Remove="dislikeButton.png" />
     <None Remove="homeButton.png" />
+    <None Remove="ImageBotaoEditar.png" />
     <None Remove="ImageBotaoLogout.png" />
     <None Remove="ImageBotaoPerfil.png" />
     <None Remove="ImageBotaoPublicacao.png" />
@@ -28,6 +30,7 @@
     <None Remove="Logocodex.png" />
     <None Remove="LogoutButtonOFF.png" />
     <None Remove="LogoutButtonON.png" />
+    <None Remove="NegarBtn.png" />
     <None Remove="NotifButtonOFF.png" />
     <None Remove="NotifButtonON.png" />
     <None Remove="PerfilButtonOFF.png" />
@@ -44,6 +47,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="AceitarBtn.png" />
     <Resource Include="AddButton.png" />
     <Resource Include="ConfigButtonOFF.png" />
     <Resource Include="ConfigButtonON.png" />
@@ -56,6 +60,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="ImageBotaoEditar.png" />
     <Resource Include="ImageBotaoLogout.png" />
     <Resource Include="ImageBotaoPerfil.png" />
     <Resource Include="ImageBotaoPublicacao.png" />
@@ -67,6 +72,7 @@
     <Resource Include="Logocodex.png" />
     <Resource Include="LogoutButtonOFF.png" />
     <Resource Include="LogoutButtonON.png" />
+    <Resource Include="NegarBtn.png" />
     <Resource Include="NotifButtonOFF.png" />
     <Resource Include="NotifButtonON.png" />
     <Resource Include="PerfilButtonOFF.png" />

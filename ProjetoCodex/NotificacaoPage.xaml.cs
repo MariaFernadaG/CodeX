@@ -170,6 +170,10 @@ namespace ProjetoCodex
             DragMove();
         }
 
+        private void ListSNotificacoes_SelectionChanged()
+        {
+
+        }
     }
 }
 
