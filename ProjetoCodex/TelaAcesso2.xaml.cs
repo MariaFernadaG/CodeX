@@ -60,8 +60,10 @@ namespace ProjetoCodex
             // Substitua "usuarioLogado" pelo usuário atualmente logado no seu aplicativo.
             Usuario usuarioLogado = Usuario.UsuarioLogado;
 
-            // Preencha o ListBox com os usuários excluindo o usuário logado.
-            ListSugestoes.ItemsSource = Usuario.listausuario.Where(u => u != UsuarioLogado);
+            // modificaçao para nao aparecer usuario desativado 
+
+            List<Usuario> usuariosAtivos = Usuario.listausuario.Where(u => u.Ativa && u != Usuario.UsuarioLogado).ToList();
+            ListSugestoes.ItemsSource = usuariosAtivos;
 
 
 
@@ -70,11 +72,7 @@ namespace ProjetoCodex
 
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Perfil telaperfil = new Perfil();
-            telaperfil.Show();
-        }
+       
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {

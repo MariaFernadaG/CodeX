@@ -47,7 +47,8 @@ namespace ProjetoCodex
 
             Usuario usuarioLogado = Usuario.UsuarioLogado;
 
-            ListSugestoes.ItemsSource = Usuario.listausuario.Where(u => u != UsuarioLogado);
+            List<Usuario> usuariosAtivos = Usuario.listausuario.Where(u => u.Ativa && u != Usuario.UsuarioLogado).ToList();
+            ListSugestoes.ItemsSource = usuariosAtivos;
 
         }
 

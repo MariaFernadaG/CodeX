@@ -16,27 +16,34 @@ namespace ProjetoCodex.Controller
         public DateTime DataDeNascimento { get; set; }
         public string Bio { get; set; }
         public string Senha { get; set; }
-        public int User { get; set; }
+
         public string MensagemSolicitacao { get; set; }
         public string NomeRemetenteSolicitacao { get; set; }
         public int seguidores { get; set; }
 
         public static DateTime DataDeNascimentoPadrao = new DateTime(2000, 1, 1);
-       
+
+        public bool Ativa { get; set; } = true; // Propriedade para determinar se a conta está ativa
         public List<Usuario> Amigos { get; set; } = new List<Usuario>();
-       
+
         public List<Notificacao> Notificacoes { get; set; } = new List<Notificacao>();
-        public List<Usuario> Amigo { get; set; } = new List<Usuario>();
+
         public List<Usuario> SolicitacoesAmizadePendentes { get; set; } = new List<Usuario>();
 
-
+        public void RemoverNotificacao(Notificacao notificacao)
+        {
+            if (Notificacoes.Contains(notificacao))
+            {
+                Notificacoes.Remove(notificacao);
+            }
+        }
         private void MostrarNotificacoes()
         {
             foreach (var notificacao in Usuario.UsuarioLogado.Notificacoes)
             {
-            // chama tela de notificao e exibi-la no home 
+                // chama tela de notificao e exibi-la no home 
             }
-            
+
         }
 
         // Método para enviar uma solicitação de amizade
@@ -52,13 +59,30 @@ namespace ProjetoCodex.Controller
                 amigo.Notificacoes.Add(new Notificacao(mensagem));
             }
         }
-        public void AceitarSolicitacaoAmizade(Usuario amigo)
+
+
+        public void CancelarSolicitacaoRecebida(Usuario remetente)
         {
-            if (SolicitacoesAmizadePendentes.Contains(amigo))
+            // Lógica para cancelar a solicitação recebida
+            // Por exemplo:
+            if (SolicitacoesAmizadePendentes.Contains(remetente))
             {
-                SolicitacoesAmizadePendentes.Remove(amigo);
-                Amigos.Add(amigo);
-                amigo.Amigos.Add(this);
+                SolicitacoesAmizadePendentes.Remove(remetente);
+            }
+        }
+        public void AceitarSolicitacaoAmizade(Usuario solicitante)
+        {
+            if (SolicitacoesAmizadePendentes.Contains(solicitante))
+            {
+                // Adiciona o solicitante à lista de amigos
+                Amigos.Add(solicitante);
+                solicitante.Amigos.Add(this); // Adiciona este usuário à lista de amigos do solicitante
+
+                // Remove a solicitação da lista de solicitações pendentes
+                SolicitacoesAmizadePendentes.Remove(solicitante);
+
+                // Cria uma notificação para informar que a solicitação foi aceita
+                solicitante.Notificacoes.Add(new Notificacao($"{Nome} aceitou sua solicitação de amizade."));
             }
         }
 
@@ -88,7 +112,7 @@ namespace ProjetoCodex.Controller
             return new DateTime(anoNascimento, mesNascimento, diaNascimento);
         }
 
-       
+
 
         public static Usuario UsuarioLogado { get; private set; }
 
@@ -171,35 +195,54 @@ namespace ProjetoCodex.Controller
 
         public static bool FazerLogin(string email, string senha)
         {
+
             Usuario usuario = listausuario.FirstOrDefault(u => u.Email == email && u.Senha == senha);
 
             if (usuario == null)
             {
                 MessageBox.Show("Usuário não encontrado");
-                return true;
+                return true; // Indica que o login não foi bem-sucedido
             }
-            else
+            if (!usuario.Ativa) // Verifica se a conta está desativada
             {
-                Usuario.UsuarioLogado = usuario;
-
-                /*/ Exiba as notificações, se houver alguma
-                foreach (var notificacao in usuario.Notificacoes.ToList())
+                if (MostrarPerguntaReativarConta())
                 {
-                    usuario.MostrarNotificacoes();
+                    usuario.Ativa = true; // Reativa a conta se o usuário optar por reativar
+
+                    // Reativa as postagens associadas ao usuário
+                    Arquivador.RestaurarPostagensEComentarios(usuario);
                 }
-
-                // Limpe as notificações depois de exibi-las
-                usuario.Notificacoes.Clear();
-
-                // Aqui você pode continuar com o resto do seu código
-
-                return false;
-
-
-                */ UsuarioLogado = usuario;
-                 return false;
+                else
+                {
+                    MessageBox.Show("Conta desativada. Não foi possível fazer login.");
+                    return true; // Login não permitido, conta desativada
+                }
             }
+
+            Usuario.UsuarioLogado = usuario; // Define o usuário como logado
+
+            return false; // Indica que o login foi bem-sucedido
         }
+        public void DesativarConta()
+        {
+            Ativa = false;
+
+
+            Arquivador.ArquivarPostagensEComentarios(this);
+        }
+
+        private static bool MostrarPerguntaReativarConta()
+        {
+            MessageBoxResult result = MessageBox.Show("Sua conta está desativada, deseja reativar?", "Confirmação", MessageBoxButton.YesNo);
+
+            // Verificar a resposta do usuário
+            if (result == MessageBoxResult.Yes)
+            {
+                return true; // Simulando a escolha do usuário por reativar a conta
+            }
+            return false;
+        }
+
 
         public static void RealizarLogout()
         {
@@ -236,7 +279,7 @@ namespace ProjetoCodex.Controller
         public static void EditarUsuario(Usuario usuarioLogado, string? nome)
         {
             usuarioLogado.Nome = nome;
-            
+
 
 
             MessageBox.Show("Nome alterado editado com sucesso!");
@@ -251,5 +294,5 @@ namespace ProjetoCodex.Controller
         }
 
     }
-   
+
 }

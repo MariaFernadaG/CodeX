@@ -19,9 +19,6 @@
     <Compile Update="NotificacaoPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Perfil.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="PerfilPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -49,9 +46,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="NotificacaoPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Perfil.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="PerfilPage.xaml">

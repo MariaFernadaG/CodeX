@@ -32,10 +32,14 @@ namespace ProjetoCodex
             InitializeComponent();
             txtEmail.Text = Usuario.UsuarioLogado.Email;
             txtNome.Text = Usuario.UsuarioLogado.Nome;
+
            
+
+
             Usuario usuarioLogado = Usuario.UsuarioLogado;
 
-            ListSugestoes.ItemsSource = Usuario.listausuario.Where(u => u != UsuarioLogado);
+            List<Usuario> usuariosAtivos = Usuario.listausuario.Where(u => u.Ativa && u != Usuario.UsuarioLogado).ToList();
+            ListSugestoes.ItemsSource = usuariosAtivos;
 
         }
 
@@ -74,7 +78,9 @@ namespace ProjetoCodex
 
             foreach (Usuario usuario in Usuario.listausuario)
             {
+
                 ListSugestoes.Items.Add(usuario.Nome);
+                ListSugestoes.Items.Add(usuario.Bio);
                 ListSugestoes.Items.Add(usuario.ID);
 
 
@@ -155,6 +161,19 @@ namespace ProjetoCodex
         {
             base.OnMouseLeftButtonDown(e);
             DragMove();
+        }
+
+        private void DesativarContaButton_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario usuarioAtual = Usuario.UsuarioLogado; // Ou obtenha o usuário de alguma outra forma
+
+            // Desativa a conta e arquiva as postagens
+            usuarioAtual.DesativarConta();
+
+            MessageBox.Show("Conta desativada com sucesso!");
+            this.Close();
+            MainWindow n2 = new MainWindow();
+            n2.Show();
         }
     }
 }

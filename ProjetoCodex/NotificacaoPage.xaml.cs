@@ -38,7 +38,8 @@ namespace ProjetoCodex
 
             Usuario usuarioLogado = Usuario.UsuarioLogado;
 
-            ListSugestoes.ItemsSource = Usuario.listausuario.Where(u => u != UsuarioLogado);
+            List<Usuario> usuariosAtivos = Usuario.listausuario.Where(u => u.Ativa && u != Usuario.UsuarioLogado).ToList();
+            ListSugestoes.ItemsSource = usuariosAtivos;
             ListSNotificacoes.ItemsSource = Usuario.UsuarioLogado.Notificacoes;
 
 
@@ -102,14 +103,51 @@ namespace ProjetoCodex
         }
         private void AceitarButton_Click(object sender, RoutedEventArgs e)
         {
+            Button button = sender as Button;
+            if (button != null)
+            {
+                Notificacao notificacao = button.DataContext as Notificacao;
+
+                if (notificacao != null)
+                {
+                    Usuario remetente = notificacao.Remetente; // Supondo que Notificacao tenha um campo Remetente
+
+                    if (remetente != null)
+                    {
+                        Usuario.UsuarioLogado.AceitarSolicitacaoAmizade(remetente);
+
+                        // Remove a notificação após aceitar a solicitação
+                        Usuario.UsuarioLogado.RemoverNotificacao(notificacao);
+
+                        // Atualiza a interface após as alterações
+                        ListSNotificacoes.ItemsSource = null;
+                        ListSNotificacoes.ItemsSource = Usuario.UsuarioLogado.Notificacoes;
+                        ListSugestoes.ItemsSource = Usuario.listausuario.Where(u => u != Usuario.UsuarioLogado && !Usuario.UsuarioLogado.Amigos.Contains(u));
+                    }
+                }
+            }
+
 
         }
 
         private void RecusarButton_Click(object sender, RoutedEventArgs e)
         {
+            Button button = sender as Button;
+            if (button != null)
+            {
+                Notificacao notificacao = button.DataContext as Notificacao;
+
+                if (notificacao != null)
+                {
+                    Usuario.UsuarioLogado.RemoverNotificacao(notificacao);
+                    ListSNotificacoes.ItemsSource = null;
+                    ListSNotificacoes.ItemsSource = Usuario.UsuarioLogado.Notificacoes;
+                }
+            }
 
 
         }
+
         private void SolicitarAmizade_Click(object sender, RoutedEventArgs e)
         {
             Usuario usuarioSelecionado = (Usuario)ListSugestoes.SelectedItem;
