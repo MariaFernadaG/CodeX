@@ -82,7 +82,6 @@ C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\bin\Debug\net6.0-w
 C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\bin\Debug\net6.0-windows\ProjetoCodex.dll
 C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\bin\Debug\net6.0-windows\ProjetoCodex.pdb
 C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\MainWindow.g.cs
-C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Perfil.g.cs
 C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\TelaAcesso1.g.cs
 C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\TelaAcesso2.g.cs
 C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Window1.g.cs
@@ -90,7 +89,6 @@ C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-w
 C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex_MarkupCompile.cache
 C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex_MarkupCompile.lref
 C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\MainWindow.baml
-C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Perfil.baml
 C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\TelaAcesso1.baml
 C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\TelaAcesso2.baml
 C:\Users\Pedro Luiz\Downloads\ProjetoCodex\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Window1.baml

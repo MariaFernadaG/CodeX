@@ -69,11 +69,6 @@ namespace ProjetoCodex
 
 
         }
-
-
-
-       
-
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(campoMensagem.Text))
@@ -105,18 +100,26 @@ namespace ProjetoCodex
                 }
             }
         }
-
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             System.Environment.Exit(0);
         }
-
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            Usuario.RealizarLogout();
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
+            LogoutPage janelaLogout = new LogoutPage();
+            bool? resultado = janelaLogout.ShowDialog();
+
+            if (resultado == true)
+            {
+                // Executar ações após o logout
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                // Caso o logout seja cancelado, não faz nada ou pode tratar isso de outra maneira
+            }
         }
 
         private void LikeButton_Click(object sender, RoutedEventArgs e)
@@ -221,9 +224,6 @@ namespace ProjetoCodex
 
             }
         }
-
-
-
         private void ExcluirPostagemButton_Click(object sender, RoutedEventArgs e)
         {
             Button excluirButton = (Button)sender;
@@ -351,9 +351,6 @@ namespace ProjetoCodex
 
                     // Atualize a interface do usuário ou forneça um feedback adequado
                     MessageBox.Show("Solicitação de amizade enviada para " + usuarioSelecionado.Nome);
-
-
-
                     // Atualize a ListBox com a nova fonte de dados
                     // ListSugestoes.ItemsSource = Usuario.listausuario.Where(u => u != Usuario.UsuarioLogado).ToList();
                     List<Usuario> novaListaUsuarios = Usuario.listausuario
@@ -372,9 +369,6 @@ namespace ProjetoCodex
             }
 
         }
-
-
-
         public bool IsDarkTheme { get; set; }
         private readonly PaletteHelper paletteHelper = new PaletteHelper();
 
@@ -394,7 +388,6 @@ namespace ProjetoCodex
             }
             paletteHelper.SetTheme(theme);
         }
-
         private void exitApp(object sender, EventArgs e)
         {
             Application.Current.Shutdown();

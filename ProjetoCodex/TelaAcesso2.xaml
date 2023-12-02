@@ -196,7 +196,7 @@
 
                                             <TextBlock Text="Comentários:" FontWeight="Bold" FontSize="13" Margin="0,10,0,5" />
 
-                                            <ListBox ItemsSource="{Binding Comentarios}" Height="126" ScrollViewer.CanContentScroll="False">
+                                            <ListBox ItemsSource="{Binding Comentarios}" Height="auto" ScrollViewer.CanContentScroll="False">
                                                 <ListBox.ItemTemplate>
                                                     <DataTemplate>
                                                         <StackPanel>

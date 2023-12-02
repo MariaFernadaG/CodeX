@@ -147,7 +147,7 @@
                                 <DataTemplate>
                                     <StackPanel>
                                         <TextBlock Text="{Binding Autor}" FontWeight="Bold"/>
-                                        <TextBlock Text="{Binding Conteudo}"/>
+                                        <TextBlock Text="{Binding Conteudo}" TextWrapping="Wrap" TextAlignment="Justify"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>

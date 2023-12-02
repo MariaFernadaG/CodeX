@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:ProjetoCodex"
         mc:Ignorable="d"
-        Title="LogoutPage" Height="322" Width="498">
+        Title="LogoutPage" Height="322" Width="498" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Visible">
     <Grid Margin="0,0,0,-6">
         <materialDesign:Card>
             <Image Margin="64,8,64,91" Source="Logocodex.png" Panel.ZIndex="1"/>
@@ -43,6 +43,5 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-
     </Grid>
 </Window>
