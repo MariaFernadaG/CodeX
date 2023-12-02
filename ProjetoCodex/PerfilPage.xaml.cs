@@ -34,8 +34,7 @@ namespace ProjetoCodex
             txtNome.Text = Usuario.UsuarioLogado.Nome;
            
             PostagensDoUsuarioLogado = new ObservableCollection<Postagem>();
-            textBoxNome.Text = Usuario.UsuarioLogado.Nome;
-            texteditarBio.Text = Usuario.UsuarioLogado.Bio;
+           
             foreach (var postagem in Postagem.postagens.Where(p => p.Autor == Usuario.UsuarioLogado.Nome))
             {
 
@@ -47,8 +46,8 @@ namespace ProjetoCodex
 
             Usuario usuarioLogado = Usuario.UsuarioLogado;
 
-            List<Usuario> usuariosAtivos = Usuario.listausuario.Where(u => u.Ativa && u != Usuario.UsuarioLogado).ToList();
-            ListSugestoes.ItemsSource = usuariosAtivos;
+           
+            listBoxAmigos.ItemsSource = Usuario.UsuarioLogado.Amigos;
 
         }
 
@@ -96,29 +95,13 @@ namespace ProjetoCodex
 
             foreach (Usuario usuario in Usuario.listausuario)
             {
-                ListSugestoes.Items.Add(usuario.Nome);
-                ListSugestoes.Items.Add(usuario.ID);
+               /* ListSugestoes.Items.Add(usuario.Nome);
+                ListSugestoes.Items.Add(usuario.ID);*/
 
 
             }
         }
-        private void Editarperfil_Click(object sender, RoutedEventArgs e)
-        {
-            Usuario usuariologado = Usuario.UsuarioLogado;
-
-            // DateTime dataNascimento = ((DateTime?)txtData.SelectedDate)?.Date ?? DateTime.MinValue;
-
-            Usuario.EditarUsuario(usuariologado, textBoxNome.Text);
-        }
-
-        private void editarbio_Click(object sender, RoutedEventArgs e)
-        {
-            Usuario usuariologado = Usuario.UsuarioLogado;
-
-
-
-            Usuario.EditarBio(usuariologado, texteditarBio.Text);
-        }
+      
         public void PreencherListBoxComSolicitacoes(ListBox ListSNotificacoes)
         {
 
@@ -130,37 +113,9 @@ namespace ProjetoCodex
 
         private void SolicitarAmizade_Click(object sender, RoutedEventArgs e)
         {
-            Usuario usuarioSelecionado = (Usuario)ListSugestoes.SelectedItem;
+         
 
-            if (usuarioSelecionado != null)
-            {
-                // Verifique se já existe uma solicitação de amizade pendente
-                if (!Usuario.UsuarioLogado.SolicitacoesAmizadePendentes.Contains(usuarioSelecionado))
-                {
-                    // Envie a solicitação de amizade para o usuário selecionado
-                    Usuario.UsuarioLogado.EnviarSolicitacaoAmizade(usuarioSelecionado);
-
-                    // Atualize a interface do usuário ou forneça um feedback adequado
-                    MessageBox.Show("Solicitação de amizade enviada para " + usuarioSelecionado.Nome);
-
-
-
-                    // Atualize a ListBox com a nova fonte de dados
-                    // ListSugestoes.ItemsSource = Usuario.listausuario.Where(u => u != Usuario.UsuarioLogado).ToList();
-                    List<Usuario> novaListaUsuarios = Usuario.listausuario
-                   .Where(u => u != Usuario.UsuarioLogado && u != usuarioSelecionado)
-                   .ToList();
-
-                    // Atualize a ListBox com a nova fonte de dados
-                    ListSugestoes.ItemsSource = novaListaUsuarios;
-
-                }
-                else
-                {
-                    MessageBox.Show("Você já enviou uma solicitação de amizade para " + usuarioSelecionado.Nome);
-                }
-
-            }
+            
 
         }
 

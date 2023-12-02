@@ -38,8 +38,7 @@ namespace ProjetoCodex
 
             Usuario usuarioLogado = Usuario.UsuarioLogado;
 
-            List<Usuario> usuariosAtivos = Usuario.listausuario.Where(u => u.Ativa && u != Usuario.UsuarioLogado).ToList();
-            ListSugestoes.ItemsSource = usuariosAtivos;
+            ListAmigos.ItemsSource = Usuario.UsuarioLogado.Amigos;
             ListSNotificacoes.ItemsSource = Usuario.UsuarioLogado.Notificacoes;
 
 
@@ -80,26 +79,13 @@ namespace ProjetoCodex
             telaAcesso2.Show();
             this.Close();
         }
-        public void PreencherListBoxComUsuarios(ListBox listBox)
+      
+
+       
+        private void AtualizarListaAmigos()
         {
-
-
-            foreach (Usuario usuario in Usuario.listausuario)
-            {
-                ListSugestoes.Items.Add(usuario.Nome);
-                ListSugestoes.Items.Add(usuario.ID);
-
-
-            }
-        }
-
-        public void PreencherListBoxComSolicitacoes(ListBox ListSNotificacoes)
-        {
-
-
-
-
-
+            // Associa a lista de amigos à fonte de dados do ListBox
+            ListAmigos.ItemsSource = Usuario.UsuarioLogado.Amigos;
         }
         private void AceitarButton_Click(object sender, RoutedEventArgs e)
         {
@@ -110,25 +96,32 @@ namespace ProjetoCodex
 
                 if (notificacao != null)
                 {
-                    Usuario remetente = notificacao.Remetente; // Supondo que Notificacao tenha um campo Remetente
+                    // Remove a notificação após aceitar a solicitação
+                    Usuario.UsuarioLogado.RemoverNotificacao(notificacao);
 
+                    Usuario remetente = notificacao.Remetente; // Supondo que Notificacao tenha um campo Remetente
                     if (remetente != null)
                     {
-                        Usuario.UsuarioLogado.AceitarSolicitacaoAmizade(remetente);
-
                         // Remove a notificação após aceitar a solicitação
                         Usuario.UsuarioLogado.RemoverNotificacao(notificacao);
+                       
+                        // Adiciona o remetente como amigo do usuário logado
+                        Usuario.UsuarioLogado.Amigos.Add(remetente);
+
+                        // Remove a solicitação pendente, se existir
+                        Usuario.UsuarioLogado.SolicitacoesAmizadePendentes.Remove(remetente);
 
                         // Atualiza a interface após as alterações
-                        ListSNotificacoes.ItemsSource = null;
+                        AtualizarListaAmigos(); // Atualiza a lista de amigos
+
+                        // Atualiza as fontes de dados dos outros controles
                         ListSNotificacoes.ItemsSource = Usuario.UsuarioLogado.Notificacoes;
-                        ListSugestoes.ItemsSource = Usuario.listausuario.Where(u => u != Usuario.UsuarioLogado && !Usuario.UsuarioLogado.Amigos.Contains(u));
+                       // ListSugestoes.ItemsSource = Usuario.listausuario.Where(u => u != Usuario.UsuarioLogado && !Usuario.UsuarioLogado.Amigos.Contains(u));
                     }
                 }
             }
-
-
         }
+
 
         private void RecusarButton_Click(object sender, RoutedEventArgs e)
         {
@@ -148,34 +141,7 @@ namespace ProjetoCodex
 
         }
 
-        private void SolicitarAmizade_Click(object sender, RoutedEventArgs e)
-        {
-            Usuario usuarioSelecionado = (Usuario)ListSugestoes.SelectedItem;
-
-            if (usuarioSelecionado != null)
-            {
-                
-                if (!Usuario.UsuarioLogado.SolicitacoesAmizadePendentes.Contains(usuarioSelecionado))
-                {
-                    Usuario.UsuarioLogado.EnviarSolicitacaoAmizade(usuarioSelecionado);
-
-                    MessageBox.Show("Solicitação de amizade enviada para " + usuarioSelecionado.Nome);
-                    List<Usuario> novaListaUsuarios = Usuario.listausuario
-                   .Where(u => u != Usuario.UsuarioLogado && u != usuarioSelecionado)
-                   .ToList();
-
-                    // Atualize a ListBox com a nova fonte de dados
-                    ListSugestoes.ItemsSource = novaListaUsuarios;
-
-                }
-                else
-                {
-                    MessageBox.Show("Você já enviou uma solicitação de amizade para " + usuarioSelecionado.Nome);
-                }
-
-            }
-
-        }
+       
 
         public bool IsDarkTheme { get; set; }
         private readonly PaletteHelper paletteHelper = new PaletteHelper();

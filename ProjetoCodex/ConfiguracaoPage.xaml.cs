@@ -33,14 +33,33 @@ namespace ProjetoCodex
             txtEmail.Text = Usuario.UsuarioLogado.Email;
             txtNome.Text = Usuario.UsuarioLogado.Nome;
 
-           
+            textBoxNome.Text = Usuario.UsuarioLogado.Nome;
+            texteditarBio.Text = Usuario.UsuarioLogado.Bio;
 
 
             Usuario usuarioLogado = Usuario.UsuarioLogado;
+            listBoxAmigos.ItemsSource = Usuario.UsuarioLogado.Amigos;
 
-            List<Usuario> usuariosAtivos = Usuario.listausuario.Where(u => u.Ativa && u != Usuario.UsuarioLogado).ToList();
-            ListSugestoes.ItemsSource = usuariosAtivos;
 
+        }
+
+
+         private void Editarperfil_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario usuariologado = Usuario.UsuarioLogado;
+
+            // DateTime dataNascimento = ((DateTime?)txtData.SelectedDate)?.Date ?? DateTime.MinValue;
+
+            Usuario.EditarUsuario(usuariologado, textBoxNome.Text);
+        }
+
+        private void editarbio_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario usuariologado = Usuario.UsuarioLogado;
+
+
+
+            Usuario.EditarBio(usuariologado, texteditarBio.Text);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -72,20 +91,7 @@ namespace ProjetoCodex
 
         }
 
-        public void PreencherListBoxComUsuarios(ListBox listBox)
-        {
-
-
-            foreach (Usuario usuario in Usuario.listausuario)
-            {
-
-                ListSugestoes.Items.Add(usuario.Nome);
-                ListSugestoes.Items.Add(usuario.Bio);
-                ListSugestoes.Items.Add(usuario.ID);
-
-
-            }
-        }
+      
 
         public void PreencherListBoxComSolicitacoes(ListBox ListSNotificacoes)
         {
@@ -96,41 +102,9 @@ namespace ProjetoCodex
 
         }
 
-        private void SolicitarAmizade_Click(object sender, RoutedEventArgs e)
-        {
-            Usuario usuarioSelecionado = (Usuario)ListSugestoes.SelectedItem;
+       
 
-            if (usuarioSelecionado != null)
-            {
-                // Verifique se já existe uma solicitação de amizade pendente
-                if (!Usuario.UsuarioLogado.SolicitacoesAmizadePendentes.Contains(usuarioSelecionado))
-                {
-                    // Envie a solicitação de amizade para o usuário selecionado
-                    Usuario.UsuarioLogado.EnviarSolicitacaoAmizade(usuarioSelecionado);
-
-                    // Atualize a interface do usuário ou forneça um feedback adequado
-                    MessageBox.Show("Solicitação de amizade enviada para " + usuarioSelecionado.Nome);
-
-
-
-                    // Atualize a ListBox com a nova fonte de dados
-                    // ListSugestoes.ItemsSource = Usuario.listausuario.Where(u => u != Usuario.UsuarioLogado).ToList();
-                    List<Usuario> novaListaUsuarios = Usuario.listausuario
-                   .Where(u => u != Usuario.UsuarioLogado && u != usuarioSelecionado)
-                   .ToList();
-
-                    // Atualize a ListBox com a nova fonte de dados
-                    ListSugestoes.ItemsSource = novaListaUsuarios;
-
-                }
-                else
-                {
-                    MessageBox.Show("Você já enviou uma solicitação de amizade para " + usuarioSelecionado.Nome);
-                }
-
-            }
-
-        }
+        
 
         public bool IsDarkTheme { get; set; }
         private readonly PaletteHelper paletteHelper = new PaletteHelper();

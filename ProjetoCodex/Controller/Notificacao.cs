@@ -11,10 +11,10 @@ namespace ProjetoCodex.Controller
         public string Mensagem { get; set; }
         public Usuario Remetente { get; set; } // Adicione uma propriedade para armazenar o remetente da notificação
 
-        public Notificacao(string mensagem)
+        public Notificacao(string mensagem, Usuario remetente)
         {
             Mensagem = mensagem;
-            Remetente = Remetente;
+            Remetente = remetente;
         }
     }
 }

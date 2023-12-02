@@ -56,35 +56,13 @@ namespace ProjetoCodex.Controller
                 amigo.NomeRemetenteSolicitacao = Nome;
 
                 string mensagem = $"{Nome} enviou uma solicitação de amizade.";
-                amigo.Notificacoes.Add(new Notificacao(mensagem));
+                amigo.Notificacoes.Add(new Notificacao(mensagem, this));
             }
         }
 
 
-        public void CancelarSolicitacaoRecebida(Usuario remetente)
-        {
-            // Lógica para cancelar a solicitação recebida
-            // Por exemplo:
-            if (SolicitacoesAmizadePendentes.Contains(remetente))
-            {
-                SolicitacoesAmizadePendentes.Remove(remetente);
-            }
-        }
-        public void AceitarSolicitacaoAmizade(Usuario solicitante)
-        {
-            if (SolicitacoesAmizadePendentes.Contains(solicitante))
-            {
-                // Adiciona o solicitante à lista de amigos
-                Amigos.Add(solicitante);
-                solicitante.Amigos.Add(this); // Adiciona este usuário à lista de amigos do solicitante
-
-                // Remove a solicitação da lista de solicitações pendentes
-                SolicitacoesAmizadePendentes.Remove(solicitante);
-
-                // Cria uma notificação para informar que a solicitação foi aceita
-                solicitante.Notificacoes.Add(new Notificacao($"{Nome} aceitou sua solicitação de amizade."));
-            }
-        }
+      
+      
 
         public void MostrarNotificacoesPublico()
         {
@@ -121,7 +99,7 @@ namespace ProjetoCodex.Controller
             new Usuario
             {
                 ID = 0,
-                Nome = "Maria Fernanda Guedes",
+                Nome = "Maria Fernanda",
                 DataDeNascimento = new DateTime(2003, 1, 1),  // Use a data de nascimento correta
                 Email = "Maria@gmail.com",
                 Senha = "123",
@@ -201,27 +179,26 @@ namespace ProjetoCodex.Controller
             if (usuario == null)
             {
                 MessageBox.Show("Usuário não encontrado");
-                return true; // Indica que o login não foi bem-sucedido
+                return true; 
             }
-            if (!usuario.Ativa) // Verifica se a conta está desativada
+            if (!usuario.Ativa)
             {
                 if (MostrarPerguntaReativarConta())
                 {
-                    usuario.Ativa = true; // Reativa a conta se o usuário optar por reativar
+                    usuario.Ativa = true; 
 
-                    // Reativa as postagens associadas ao usuário
+                    
                     Arquivador.RestaurarPostagensEComentarios(usuario);
                 }
                 else
                 {
                     MessageBox.Show("Conta desativada. Não foi possível fazer login.");
-                    return true; // Login não permitido, conta desativada
+                    return true; 
                 }
             }
 
-            Usuario.UsuarioLogado = usuario; // Define o usuário como logado
-
-            return false; // Indica que o login foi bem-sucedido
+            Usuario.UsuarioLogado = usuario; 
+            return false; 
         }
         public void DesativarConta()
         {

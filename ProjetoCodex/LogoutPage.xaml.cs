@@ -22,7 +22,7 @@ namespace ProjetoCodex
                     window.Close();
                 }
             }
-            55
+            
             // Abra a tela inicial
             MainWindow telaInicial = new MainWindow();
             WindowManager.AbrirJanela(telaInicial);

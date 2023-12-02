@@ -96,17 +96,13 @@
             <materialDesign:Card UniformCornerRadius="15" Background="{DynamicResource MaterialDesignPaper}" Grid.Row="1" Grid.Column="2">
                 <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHostRight">
                     <StackPanel Cursor="IBeam" Margin="0 0 0 0" RenderTransformOrigin="0.5,0.5">
-                        <ListBox x:Name="ListSugestoes" ItemsSource="{Binding Usuarios}" Height="144" d:ItemsSource="{d:SampleData ItemCount=5}">
+                        <TextBlock Text="Amigos:" FontWeight="Bold" FontSize="13" Margin="10,10,0,5" />
+                        <ListBox x:Name="listBoxAmigos" Width="200" Height="300" ItemsSource="{Binding Amigos}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="{Binding Nome}" Margin="10,0,10,0" VerticalAlignment="Center" />
                                         <TextBlock Text="{Binding Bio}"  Margin="-70,30,0,0" VerticalAlignment="Center" />
-                                        <Button Content="" ToolTip="Solicitar Amizade" Click="SolicitarAmizade_Click" Tag="{Binding Nome}" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="86" Cursor="Hand" >
-                                            <Button.Background>
-                                                <ImageBrush ImageSource="/AddButton.png" Stretch="Uniform"/>
-                                            </Button.Background>
-                                        </Button>
 
                                     </StackPanel>
                                 </DataTemplate>
@@ -119,7 +115,31 @@
             <materialDesign:Card UniformCornerRadius="15" Background="{DynamicResource MaterialDesignPaper}" Grid.Row="1" Grid.Column="1" Margin="5,0,5,0">
                 <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHost">
                     <StackPanel Cursor="Hand">
+
+                        <TextBox x:Name="textBoxNome" TextWrapping="Wrap" Margin="50 40 0 0" HorizontalAlignment="Left"
+          Width="434" Height="65" Style="{StaticResource MaterialDesignOutlinedTextBox}"
+          BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="19"
+          materialDesign:HintAssist.Hint="Editar Nome" BorderThickness="2"
+          materialDesign:TextFieldAssist.TextFieldCornerRadius="30" Cursor="Hand"
+          SelectionOpacity="5"/>
+                        <Button x:Name="Editarperfil" Content=" " HorizontalAlignment="Right" Margin="0,0,150,0" Click="Editarperfil_Click" BorderBrush="{x:Null}" Height="50" Width="48">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/ImageBotaoEditar.png" Stretch="Uniform"/>
+                            </Button.Background>
+                        </Button>
+                        <TextBox x:Name="texteditarBio" TextWrapping="Wrap" Margin="50 40 0 0" HorizontalAlignment="Left"
+          Width="434" Height="65" Style="{StaticResource MaterialDesignOutlinedTextBox}"
+          BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="19"
+          materialDesign:HintAssist.Hint="Editar Bio" BorderThickness="2"
+          materialDesign:TextFieldAssist.TextFieldCornerRadius="30" Cursor="IBeam"
+          SelectionOpacity="5"/>
+                        <Button x:Name="editarbio" Content=" " HorizontalAlignment="Right" Margin="0,0,150,0" Click="editarbio_Click" BorderBrush="{x:Null}" Height="50" Width="48">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/ImageBotaoEditar.png" Stretch="Uniform"/>
+                            </Button.Background>
+                        </Button>
                         <Button Content="Desativar Conta" Click="DesativarContaButton_Click"/>
+                        
                     </StackPanel>
                 </materialDesign:DialogHost>
             </materialDesign:Card>

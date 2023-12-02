@@ -14,17 +14,17 @@ namespace ProjetoCodex.Controller
 
         public static void ArquivarPostagensEComentarios(Usuario usuario)
         {
-            // Arquiva as postagens do usuário que está desativando a conta
+         
             List<Postagem> postagensDoUsuario = Postagem.ListarPostagens().Where(p => p.Autor == usuario.Nome).ToList();
             PostagensArquivadas.AddRange(postagensDoUsuario);
 
-            // Remove as postagens do usuário da lista de postagens
+          
             foreach (Postagem postagem in postagensDoUsuario)
             {
                 Postagem.ExcluirPostagemEspecifica(postagem);
             }
 
-            // Arquiva os comentários do usuário que está desativando a conta
+            
             foreach (Postagem postagem in postagensDoUsuario)
             {
                 ComentariosArquivados.AddRange(postagem.Comentarios);
@@ -58,7 +58,7 @@ namespace ProjetoCodex.Controller
                 }
             }
 
-            // Remove os comentários arquivados relacionados às postagens restauradas
+            
             ComentariosArquivados.RemoveAll(c => postagensRestauradas.Any(p => p.Comentarios.Contains(c)));
         }
 
