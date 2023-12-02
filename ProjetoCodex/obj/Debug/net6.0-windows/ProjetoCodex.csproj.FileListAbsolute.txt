@@ -294,7 +294,6 @@ C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\bin\Debug\net6.0-windows\MaterialDesignThemes.Wpf.dll
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.csproj.AssemblyReference.cache
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ConfiguracaoPage.g.cs
-C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Controller\TelaNotificao.g.cs
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\LogoutPage.g.cs
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\NotificacaoPage.g.cs
@@ -307,7 +306,6 @@ C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex_MarkupCompile.lref
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\App.baml
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ConfiguracaoPage.baml
-C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Controller\TelaNotificao.baml
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\LogoutPage.baml
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\MainWindow.baml
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\NotificacaoPage.baml

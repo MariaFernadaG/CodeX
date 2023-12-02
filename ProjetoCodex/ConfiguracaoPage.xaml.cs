@@ -139,7 +139,7 @@ namespace ProjetoCodex
 
         private void DesativarContaButton_Click(object sender, RoutedEventArgs e)
         {
-            Usuario usuarioAtual = Usuario.UsuarioLogado; // Ou obtenha o usuário de alguma outra forma
+            Usuario usuarioAtual = Usuario.UsuarioLogado; 
 
             // Desativa a conta e arquiva as postagens
             usuarioAtual.DesativarConta();

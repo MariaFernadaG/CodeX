@@ -19,7 +19,6 @@ using static ProjetoCodex.Controller.Usuario;
 using System.Collections.Generic;
 using System.Windows.Media.Animation;
 using System.Windows.Navigation;
-
 namespace ProjetoCodex
 {
     public partial class TelaAcesso2 : Window
@@ -40,7 +39,7 @@ namespace ProjetoCodex
             InitializeComponent();
             txtEmail.Text = Usuario.UsuarioLogado.Email;
             txtNome.Text = Usuario.UsuarioLogado.Nome;
-            
+
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += DispatcherTimer_Tick;
@@ -62,9 +61,8 @@ namespace ProjetoCodex
 
             // modificaçao para nao aparecer usuario desativado 
 
-            List<Usuario> usuariosAtivos = Usuario.listausuario.Where(u => u.Ativa && u != Usuario.UsuarioLogado).ToList();
-            ListSugestoes.ItemsSource = usuariosAtivos;
-
+            List<Usuario> sugestoes = ObterSugestoesDeAmizade();
+            ListSugestoes.ItemsSource = sugestoes;
 
 
 
@@ -80,10 +78,10 @@ namespace ProjetoCodex
 
         private void botaoEnviarPublicacao_Click(object sender, RoutedEventArgs e)
         {
-            
-                Postagem.AdicionarPostagemAutorConteudo(txtNome.Text, campoMensagem.Text);
-                campoMensagem.Text = "";
-            
+
+            Postagem.AdicionarPostagemAutorConteudo(txtNome.Text, campoMensagem.Text);
+            campoMensagem.Text = "";
+
         }
 
         private void listaPostagens_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -316,7 +314,7 @@ namespace ProjetoCodex
 
             }
         }
-      
+
         private void listboxSugestao_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -337,38 +335,54 @@ namespace ProjetoCodex
         }
 
 
+        // Método para atualizar a lista de sugestões
+        private void AtualizarListaSugestoes()
+        {
+            List<Usuario> novaListaUsuarios = Usuario.listausuario
+                .Where(u => u != Usuario.UsuarioLogado &&
+                            !Usuario.UsuarioLogado.SolicitacoesAmizadePendentes.Contains(u))
+                .ToList();
+
+            ListSugestoes.ItemsSource = novaListaUsuarios;
+        }
+
+        // Chamada inicial para carregar a lista de sugestões
+        private void CarregarListaSugestoes()
+        {
+            // Carregar a lista de sugestões inicial
+            AtualizarListaSugestoes();
+        }
+
         private void SolicitarAmizade_Click(object sender, RoutedEventArgs e)
         {
             Usuario usuarioSelecionado = (Usuario)ListSugestoes.SelectedItem;
 
             if (usuarioSelecionado != null)
             {
-                // Verifique se já existe uma solicitação de amizade pendente
                 if (!Usuario.UsuarioLogado.SolicitacoesAmizadePendentes.Contains(usuarioSelecionado))
                 {
-                    // Envie a solicitação de amizade para o usuário selecionado
                     Usuario.UsuarioLogado.EnviarSolicitacaoAmizade(usuarioSelecionado);
-
-                    // Atualize a interface do usuário ou forneça um feedback adequado
                     MessageBox.Show("Solicitação de amizade enviada para " + usuarioSelecionado.Nome);
-                    // Atualize a ListBox com a nova fonte de dados
-                    // ListSugestoes.ItemsSource = Usuario.listausuario.Where(u => u != Usuario.UsuarioLogado).ToList();
-                    List<Usuario> novaListaUsuarios = Usuario.listausuario
-                   .Where(u => u != Usuario.UsuarioLogado && u != usuarioSelecionado)
-                   .ToList();
 
-                    // Atualize a ListBox com a nova fonte de dados
-                    ListSugestoes.ItemsSource = novaListaUsuarios;
-
+                    // Atualize a fonte de dados da ListBox
+                    List<Usuario> sugestoesAtualizadas = ObterSugestoesDeAmizade();
+                    ListSugestoes.ItemsSource = sugestoesAtualizadas;
                 }
                 else
                 {
                     MessageBox.Show("Você já enviou uma solicitação de amizade para " + usuarioSelecionado.Nome);
                 }
-
             }
-
         }
+
+        private List<Usuario> ObterSugestoesDeAmizade()
+        {
+            return Usuario.listausuario
+                .Where(u => u != Usuario.UsuarioLogado &&
+                            !Usuario.UsuarioLogado.SolicitacoesAmizadePendentes.Contains(u))
+                .ToList();
+        }
+
         public bool IsDarkTheme { get; set; }
         private readonly PaletteHelper paletteHelper = new PaletteHelper();
 
@@ -401,5 +415,5 @@ namespace ProjetoCodex
 
     }
 }
-    
+
 

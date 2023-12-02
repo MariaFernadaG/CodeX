@@ -27,12 +27,13 @@ namespace ProjetoCodex
     /// </summary>
     public partial class NotificacaoPage : Window
     {
+        
         public NotificacaoPage()
         {
             InitializeComponent();
             txtEmail.Text = Usuario.UsuarioLogado.Email;
             txtNome.Text = Usuario.UsuarioLogado.Nome;
-           
+
 
             //Usuario.UsuarioLogado.MostrarNotificacoesPublico();
 
@@ -40,6 +41,7 @@ namespace ProjetoCodex
 
             ListAmigos.ItemsSource = Usuario.UsuarioLogado.Amigos;
             ListSNotificacoes.ItemsSource = Usuario.UsuarioLogado.Notificacoes;
+
 
 
         }
@@ -79,9 +81,9 @@ namespace ProjetoCodex
             telaAcesso2.Show();
             this.Close();
         }
-      
 
-       
+
+
         private void AtualizarListaAmigos()
         {
             // Associa a lista de amigos à fonte de dados do ListBox
@@ -93,30 +95,29 @@ namespace ProjetoCodex
             if (button != null)
             {
                 Notificacao notificacao = button.DataContext as Notificacao;
-
+                AtualizarListaAmigos();
                 if (notificacao != null)
                 {
-                    // Remove a notificação após aceitar a solicitação
-                    Usuario.UsuarioLogado.RemoverNotificacao(notificacao);
 
-                    Usuario remetente = notificacao.Remetente; // Supondo que Notificacao tenha um campo Remetente
+                    Usuario remetente = notificacao.Remetente;
                     if (remetente != null)
                     {
-                        // Remove a notificação após aceitar a solicitação
+
                         Usuario.UsuarioLogado.RemoverNotificacao(notificacao);
-                       
-                        // Adiciona o remetente como amigo do usuário logado
+
+
                         Usuario.UsuarioLogado.Amigos.Add(remetente);
 
-                        // Remove a solicitação pendente, se existir
+
                         Usuario.UsuarioLogado.SolicitacoesAmizadePendentes.Remove(remetente);
 
-                        // Atualiza a interface após as alterações
-                        AtualizarListaAmigos(); // Atualiza a lista de amigos
 
-                        // Atualiza as fontes de dados dos outros controles
-                        ListSNotificacoes.ItemsSource = Usuario.UsuarioLogado.Notificacoes;
-                       // ListSugestoes.ItemsSource = Usuario.listausuario.Where(u => u != Usuario.UsuarioLogado && !Usuario.UsuarioLogado.Amigos.Contains(u));
+
+
+                        Usuario.UsuarioLogado.Notificacoes = new List<Notificacao>(); // Cria uma nova lista vazia
+
+                        ListSNotificacoes.ItemsSource = null; // Remove a fonte de dados atual
+                        ListSNotificacoes.ItemsSource = Usuario.UsuarioLogado.Notificacoes; // Atribui a nova lista como fonte de dados
                     }
                 }
             }
@@ -135,13 +136,18 @@ namespace ProjetoCodex
                     Usuario.UsuarioLogado.RemoverNotificacao(notificacao);
                     ListSNotificacoes.ItemsSource = null;
                     ListSNotificacoes.ItemsSource = Usuario.UsuarioLogado.Notificacoes;
+
                 }
             }
 
 
         }
+        private void AtualizarNotificacoes()
+        {
+            PreencherListBoxComNotificoes(); // Atualiza a lista de notificações exibida na interface
+        }
 
-       
+
 
         public bool IsDarkTheme { get; set; }
         private readonly PaletteHelper paletteHelper = new PaletteHelper();

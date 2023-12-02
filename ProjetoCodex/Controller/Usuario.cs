@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,7 @@ namespace ProjetoCodex.Controller
         public List<Notificacao> Notificacoes { get; set; } = new List<Notificacao>();
 
         public List<Usuario> SolicitacoesAmizadePendentes { get; set; } = new List<Usuario>();
-
+       
         public void RemoverNotificacao(Notificacao notificacao)
         {
             if (Notificacoes.Contains(notificacao))
@@ -120,6 +121,7 @@ namespace ProjetoCodex.Controller
         {
             listausuario ??= new List<Usuario>();
             ID = Usuario.listausuario.Count;
+            
         }
 
         public Usuario(int iD, string nome, string email, DateTime dataNascimento, string bio, string senha)
