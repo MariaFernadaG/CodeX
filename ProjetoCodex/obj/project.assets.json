@@ -104,11 +104,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\maria\\Downloads\\ProjetoCodex (1)\\ProjetoCodex\\ProjetoCodex\\CodeX\\CodeX\\CodeX\\ProjetoCodex\\ProjetoCodex.csproj",
+      "projectUniqueName": "C:\\Users\\maria\\Downloads\\CodeX (1)\\CodeX\\CodeX\\ProjetoCodex\\ProjetoCodex.csproj",
       "projectName": "ProjetoCodex",
-      "projectPath": "C:\\Users\\maria\\Downloads\\ProjetoCodex (1)\\ProjetoCodex\\ProjetoCodex\\CodeX\\CodeX\\CodeX\\ProjetoCodex\\ProjetoCodex.csproj",
+      "projectPath": "C:\\Users\\maria\\Downloads\\CodeX (1)\\CodeX\\CodeX\\ProjetoCodex\\ProjetoCodex.csproj",
       "packagesPath": "C:\\Users\\maria\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\maria\\Downloads\\ProjetoCodex (1)\\ProjetoCodex\\ProjetoCodex\\CodeX\\CodeX\\CodeX\\ProjetoCodex\\obj\\",
+      "outputPath": "C:\\Users\\maria\\Downloads\\CodeX (1)\\CodeX\\CodeX\\ProjetoCodex\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\maria\\AppData\\Roaming\\NuGet\\NuGet.Config",

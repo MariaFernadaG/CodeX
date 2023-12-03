@@ -68,7 +68,7 @@
                     <StackPanel Cursor="Hand" Margin="0 0 0 0" RenderTransformOrigin="0.5,0.5">
                         <TextBox x:Name="txtEmail" TextWrapping="Wrap" Width="120" Height="50" Margin="0 100 0 0"/>
                         <TextBox x:Name="txtNome" TextWrapping="Wrap" Width="120" Height="50" Margin="0 10 0 0"/>
-                       
+
                         <Button Content="Button" ToolTip="Perfil" Margin="0 25 0 0" Height="37" Width="129" BorderBrush="{x:Null}" Foreground="{x:Null}" materialDesign:ShadowAssist.ShadowDepth="Depth2" Click="Button_Click">
                             <Button.Background>
                                 <ImageBrush ImageSource="/PerfilButtonOFF.png"/>
@@ -115,34 +115,47 @@
             <materialDesign:Card UniformCornerRadius="15" Background="{DynamicResource MaterialDesignPaper}" Grid.Row="1" Grid.Column="1" Margin="5,0,5,0">
                 <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHost">
                     <StackPanel Cursor="Hand">
+                        <Grid>
+                            <TextBox x:Name="textBoxNome" TextWrapping="Wrap" Margin="34,80,171,0" VerticalAlignment="Top"
+                                     Style="{StaticResource MaterialDesignOutlinedTextBox}" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="19"
+                                     materialDesign:HintAssist.Hint="Editar Nome" BorderThickness="2" materialDesign:TextFieldAssist.TextFieldCornerRadius="30"
+                                     Cursor="Hand" SelectionOpacity="5"/>
+                            <Button x:Name="Editarperfil" ToolTip="Alterar Nome" Content=" " Margin="476,80,74,0" Click="Editarperfil_Click" BorderBrush="{x:Null}" Height="50" Width="60" VerticalAlignment="Top">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/ImageBotaoEditar.png" Stretch="Uniform"/>
+                                </Button.Background>
+                            </Button>
+                        </Grid>
+                        <Grid>
+                            <TextBox x:Name="texteditarBio" TextWrapping="Wrap" Margin="34,50,171,0"
+                                     Style="{StaticResource MaterialDesignOutlinedTextBox}" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="19"
+                                     materialDesign:HintAssist.Hint="Editar Bio" BorderThickness="2" materialDesign:TextFieldAssist.TextFieldCornerRadius="30"
+                                     Cursor="IBeam" SelectionOpacity="5"/>
+                            <Button x:Name="editarbio" Content=" " ToolTip="Alterar Bio" Margin="476,50,74,0" Click="editarbio_Click" BorderBrush="{x:Null}" Height="50" Width="60">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/ImageBotaoEditar.png" Stretch="Uniform"/>
+                                </Button.Background>
+                            </Button>
+                        </Grid>
 
-                        <TextBox x:Name="textBoxNome" TextWrapping="Wrap" Margin="50 40 0 0" HorizontalAlignment="Left"
-          Width="434" Height="65" Style="{StaticResource MaterialDesignOutlinedTextBox}"
-          BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="19"
-          materialDesign:HintAssist.Hint="Editar Nome" BorderThickness="2"
-          materialDesign:TextFieldAssist.TextFieldCornerRadius="30" Cursor="Hand"
-          SelectionOpacity="5"/>
-                        <Button x:Name="Editarperfil" Content=" " HorizontalAlignment="Right" Margin="0,0,150,0" Click="Editarperfil_Click" BorderBrush="{x:Null}" Height="50" Width="48">
-                            <Button.Background>
-                                <ImageBrush ImageSource="/ImageBotaoEditar.png" Stretch="Uniform"/>
-                            </Button.Background>
-                        </Button>
-                        <TextBox x:Name="texteditarBio" TextWrapping="Wrap" Margin="50 40 0 0" HorizontalAlignment="Left"
-          Width="434" Height="65" Style="{StaticResource MaterialDesignOutlinedTextBox}"
-          BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="19"
-          materialDesign:HintAssist.Hint="Editar Bio" BorderThickness="2"
-          materialDesign:TextFieldAssist.TextFieldCornerRadius="30" Cursor="IBeam"
-          SelectionOpacity="5"/>
-                        <Button x:Name="editarbio" Content=" " HorizontalAlignment="Right" Margin="0,0,150,0" Click="editarbio_Click" BorderBrush="{x:Null}" Height="50" Width="48">
-                            <Button.Background>
-                                <ImageBrush ImageSource="/ImageBotaoEditar.png" Stretch="Uniform"/>
-                            </Button.Background>
-                        </Button>
-                        <Button Content="Desativar Conta" Click="DesativarContaButton_Click"/>
+                        <TextBlock Margin="0 80 0 0" VerticalAlignment="Center" Text="Ativar Modo Escuro" HorizontalAlignment="Center" FontSize="16" FontFamily="Product Sans"/>
+                        <ToggleButton Cursor="Hand" ToolTip="Ativar Modo Escuro" Margin="12 10 8 0" Height="30" Width="150"
+                                      IsChecked="{Binding IsDarkTheme}" Click="toggleTheme"/>
                         
+                        <Button Content="Desativar Conta" Margin="0 100 0 0" Click="DesativarContaButton_Click" Width="166" materialDesign:ButtonAssist.CornerRadius="15">
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF9646D0"/>
+                                    <GradientStop Color="#FFFF3232" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+
                     </StackPanel>
+                    
                 </materialDesign:DialogHost>
             </materialDesign:Card>
+
         </Grid>
     </materialDesign:Card>
 </Window>

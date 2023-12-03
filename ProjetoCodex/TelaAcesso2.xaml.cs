@@ -61,7 +61,7 @@ namespace ProjetoCodex
 
             // modificaçao para nao aparecer usuario desativado 
 
-            List<Usuario> sugestoes = ObterSugestoesDeAmizade();
+            List<Usuario> sugestoes = UsuarioManager.ObterSugestoesParaUsuarioLogado();
             ListSugestoes.ItemsSource = sugestoes;
 
 
@@ -335,23 +335,7 @@ namespace ProjetoCodex
         }
 
 
-        // Método para atualizar a lista de sugestões
-        private void AtualizarListaSugestoes()
-        {
-            List<Usuario> novaListaUsuarios = Usuario.listausuario
-                .Where(u => u != Usuario.UsuarioLogado &&
-                            !Usuario.UsuarioLogado.SolicitacoesAmizadePendentes.Contains(u))
-                .ToList();
-
-            ListSugestoes.ItemsSource = novaListaUsuarios;
-        }
-
-        // Chamada inicial para carregar a lista de sugestões
-        private void CarregarListaSugestoes()
-        {
-            // Carregar a lista de sugestões inicial
-            AtualizarListaSugestoes();
-        }
+       
 
         private void SolicitarAmizade_Click(object sender, RoutedEventArgs e)
         {

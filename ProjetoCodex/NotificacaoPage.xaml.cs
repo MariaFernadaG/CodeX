@@ -39,11 +39,28 @@ namespace ProjetoCodex
 
             Usuario usuarioLogado = Usuario.UsuarioLogado;
 
-            ListAmigos.ItemsSource = Usuario.UsuarioLogado.Amigos;
+            Usuario.UsuarioLogado.ContaDesativada += UsuarioDesativouConta;
+            AtualizarListaAmigos();
             ListSNotificacoes.ItemsSource = Usuario.UsuarioLogado.Notificacoes;
 
 
 
+        }
+        private void UsuarioDesativouConta(object sender, EventArgs e)
+        {
+            AtualizarListaAmigos();
+        }
+        private void AtualizarListaAmigos()
+        {
+            if (Usuario.UsuarioLogado != null)
+            {
+                var amigosAtivos = Usuario.UsuarioLogado.Amigos.Where(amigo => amigo.Ativa).ToList();
+                ListAmigos.ItemsSource = amigosAtivos;
+            }
+            else
+            {
+                ListAmigos.ItemsSource = null;
+            }
         }
         public void PreencherListBoxComNotificoes()
         {
@@ -84,44 +101,30 @@ namespace ProjetoCodex
 
 
 
-        private void AtualizarListaAmigos()
-        {
-            // Associa a lista de amigos à fonte de dados do ListBox
-            ListAmigos.ItemsSource = Usuario.UsuarioLogado.Amigos;
-        }
+
         private void AceitarButton_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
             if (button != null)
             {
                 Notificacao notificacao = button.DataContext as Notificacao;
-                AtualizarListaAmigos();
                 if (notificacao != null)
                 {
-
                     Usuario remetente = notificacao.Remetente;
                     if (remetente != null)
                     {
-
                         Usuario.UsuarioLogado.RemoverNotificacao(notificacao);
-
-
                         Usuario.UsuarioLogado.Amigos.Add(remetente);
-
-
                         Usuario.UsuarioLogado.SolicitacoesAmizadePendentes.Remove(remetente);
 
-
-
-
-                        Usuario.UsuarioLogado.Notificacoes = new List<Notificacao>(); // Cria uma nova lista vazia
-
-                        ListSNotificacoes.ItemsSource = null; // Remove a fonte de dados atual
-                        ListSNotificacoes.ItemsSource = Usuario.UsuarioLogado.Notificacoes; // Atribui a nova lista como fonte de dados
+                        AtualizarListaAmigos(); // Atualiza a lista de amigos na interface
+                        ListSNotificacoes.ItemsSource = null;
+                        ListSNotificacoes.ItemsSource = Usuario.UsuarioLogado.Notificacoes;
                     }
                 }
             }
         }
+
 
 
         private void RecusarButton_Click(object sender, RoutedEventArgs e)

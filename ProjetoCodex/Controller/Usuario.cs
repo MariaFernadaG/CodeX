@@ -30,7 +30,7 @@ namespace ProjetoCodex.Controller
         public List<Notificacao> Notificacoes { get; set; } = new List<Notificacao>();
 
         public List<Usuario> SolicitacoesAmizadePendentes { get; set; } = new List<Usuario>();
-       
+        public event EventHandler ContaDesativada;
         public void RemoverNotificacao(Notificacao notificacao)
         {
             if (Notificacoes.Contains(notificacao))
@@ -198,7 +198,7 @@ namespace ProjetoCodex.Controller
                     return true; 
                 }
             }
-
+           
             Usuario.UsuarioLogado = usuario; 
             return false; 
         }
@@ -206,10 +206,10 @@ namespace ProjetoCodex.Controller
         {
             Ativa = false;
 
-
+            ContaDesativada?.Invoke(this, EventArgs.Empty);
             Arquivador.ArquivarPostagensEComentarios(this);
         }
-
+      
         private static bool MostrarPerguntaReativarConta()
         {
             MessageBoxResult result = MessageBox.Show("Sua conta está desativada, deseja reativar?", "Confirmação", MessageBoxButton.YesNo);
@@ -221,6 +221,27 @@ namespace ProjetoCodex.Controller
             }
             return false;
         }
+        public static class UsuarioManager
+        {
+            public static List<Usuario> ObterSugestoesParaUsuarioLogado()
+            {
+                if (Usuario.UsuarioLogado == null)
+                {
+                    // Se nenhum usuário estiver logado, retorna uma lista vazia
+                    return new List<Usuario>();
+                }
+
+                var usuariosComSolicitacoesEnviadas = Usuario.UsuarioLogado.SolicitacoesAmizadePendentes;
+
+                return Usuario.listausuario
+                    .Where(u => u != Usuario.UsuarioLogado &&
+                                
+                                u.Ativa &&  // Verifica se o usuário está ativo
+                                !Usuario.UsuarioLogado.SolicitacoesAmizadePendentes.Contains(u)) // Verifica se não está na lista de solicitações pendentes
+                    .ToList();
+            }
+        }
+
 
 
         public static void RealizarLogout()

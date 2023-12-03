@@ -38,13 +38,28 @@ namespace ProjetoCodex
 
 
             Usuario usuarioLogado = Usuario.UsuarioLogado;
-            listBoxAmigos.ItemsSource = Usuario.UsuarioLogado.Amigos;
+            Usuario.UsuarioLogado.ContaDesativada += UsuarioDesativouConta;
+            AtualizarListaAmigos();
 
 
         }
-
-
-         private void Editarperfil_Click(object sender, RoutedEventArgs e)
+        private void UsuarioDesativouConta(object sender, EventArgs e)
+        {
+            AtualizarListaAmigos();
+        }
+        private void AtualizarListaAmigos()
+        {
+            if (Usuario.UsuarioLogado != null)
+            {
+                var amigosAtivos = Usuario.UsuarioLogado.Amigos.Where(amigo => amigo.Ativa).ToList();
+                listBoxAmigos.ItemsSource = amigosAtivos;
+            }
+            else
+            {
+                listBoxAmigos.ItemsSource = null;
+            }
+        }
+        private void Editarperfil_Click(object sender, RoutedEventArgs e)
         {
             Usuario usuariologado = Usuario.UsuarioLogado;
 
@@ -139,15 +154,26 @@ namespace ProjetoCodex
 
         private void DesativarContaButton_Click(object sender, RoutedEventArgs e)
         {
-            Usuario usuarioAtual = Usuario.UsuarioLogado; 
+            MessageBoxResult result = MessageBox.Show("Tem certeza que deseja desativar sua conta?", "Confirmação", MessageBoxButton.YesNo);
 
-            // Desativa a conta e arquiva as postagens
-            usuarioAtual.DesativarConta();
+            // Verificar a resposta do usuário
+            if (result == MessageBoxResult.Yes)
+            {
+                Usuario usuarioAtual = Usuario.UsuarioLogado;
 
-            MessageBox.Show("Conta desativada com sucesso!");
-            this.Close();
-            MainWindow n2 = new MainWindow();
-            n2.Show();
+                // Desativa a conta e arquiva as postagens
+                usuarioAtual.DesativarConta();
+
+                MessageBox.Show("Conta desativada com sucesso!");
+                this.Close();
+                MainWindow n2 = new MainWindow();
+                n2.Show();
+            }
+            else
+            {
+                
+            }
+
         }
     }
 }

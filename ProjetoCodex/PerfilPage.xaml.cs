@@ -46,11 +46,26 @@ namespace ProjetoCodex
 
             Usuario usuarioLogado = Usuario.UsuarioLogado;
 
-           
-            listBoxAmigos.ItemsSource = Usuario.UsuarioLogado.Amigos;
+            Usuario.UsuarioLogado.ContaDesativada += UsuarioDesativouConta;
+            AtualizarListaAmigos();
 
         }
-
+        private void UsuarioDesativouConta(object sender, EventArgs e)
+        {
+            AtualizarListaAmigos();
+        }
+        private void AtualizarListaAmigos()
+        {
+            if (Usuario.UsuarioLogado != null)
+            {
+                var amigosAtivos = Usuario.UsuarioLogado.Amigos.Where(amigo => amigo.Ativa).ToList();
+                listBoxAmigos.ItemsSource = amigosAtivos;
+            }
+            else
+            {
+                listBoxAmigos.ItemsSource = null;
+            }
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             PerfilPage perfilPage = new PerfilPage();
@@ -89,35 +104,9 @@ namespace ProjetoCodex
             this.Close();
         }
 
-        public void PreencherListBoxComUsuarios(ListBox listBox)
-        {
-
-
-            foreach (Usuario usuario in Usuario.listausuario)
-            {
-               /* ListSugestoes.Items.Add(usuario.Nome);
-                ListSugestoes.Items.Add(usuario.ID);*/
-
-
-            }
-        }
+        
       
-        public void PreencherListBoxComSolicitacoes(ListBox ListSNotificacoes)
-        {
-
-
-
-
-
-        }
-
-        private void SolicitarAmizade_Click(object sender, RoutedEventArgs e)
-        {
-         
-
-            
-
-        }
+       
 
         public bool IsDarkTheme { get; set; }
         private readonly PaletteHelper paletteHelper = new PaletteHelper();
