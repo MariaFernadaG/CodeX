@@ -150,6 +150,11 @@
                                                 <ImageBrush ImageSource="/AddButton.png" Stretch="Uniform"/>
                                             </Button.Background>
                                         </Button>
+                                        <Button Content="" ToolTip="Ver Postagens" Click="VerPerfil_Click" Tag="{Binding Nome}" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="86" Cursor="Hand" >
+                                            <Button.Background>
+                                                <ImageBrush ImageSource="/AddButton.png" Stretch="Uniform"/>
+                                            </Button.Background>
+                                        </Button>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>

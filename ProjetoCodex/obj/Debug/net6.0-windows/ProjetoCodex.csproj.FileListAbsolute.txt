@@ -298,7 +298,6 @@ C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\NotificacaoPage.g.cs
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\PerfilPage.g.cs
-C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\TelaAcesso1.g.cs
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\TelaAcesso2.g.cs
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Window1.g.cs
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\App.g.cs
@@ -310,7 +309,6 @@ C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\MainWindow.baml
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\NotificacaoPage.baml
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\PerfilPage.baml
-C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\TelaAcesso1.baml
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\TelaAcesso2.baml
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\Window1.baml
 C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.g.resources
@@ -402,3 +400,5 @@ C:\Users\maria\Downloads\CodeX (1)\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-win
 C:\Users\maria\Downloads\CodeX (1)\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.pdb
 C:\Users\maria\Downloads\CodeX (1)\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ProjetoCodex.genruntimeconfig.cache
 C:\Users\maria\Downloads\CodeX (1)\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\ref\ProjetoCodex.dll
+C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\PostagensSoli.g.cs
+C:\Users\maria\Downloads\ProjetoCodex (1)\ProjetoCodex\ProjetoCodex\CodeX\CodeX\CodeX\ProjetoCodex\obj\Debug\net6.0-windows\PostagensSoli.baml

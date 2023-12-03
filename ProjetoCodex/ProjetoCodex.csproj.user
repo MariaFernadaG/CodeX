@@ -19,7 +19,7 @@
     <Compile Update="PerfilPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="TelaAcesso1.xaml.cs">
+    <Compile Update="PostagensSoli.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="TelaAcesso2.xaml.cs">
@@ -45,7 +45,7 @@
     <Page Update="PerfilPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="TelaAcesso1.xaml">
+    <Page Update="PostagensSoli.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="TelaAcesso2.xaml">

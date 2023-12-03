@@ -19,6 +19,7 @@ using static ProjetoCodex.Controller.Usuario;
 using System.Collections.Generic;
 using System.Windows.Media.Animation;
 using System.Windows.Navigation;
+using ProjetoCodex;
 namespace ProjetoCodex
 {
     public partial class TelaAcesso2 : Window
@@ -335,7 +336,20 @@ namespace ProjetoCodex
         }
 
 
-       
+        private void VerPerfil_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario usuarioSelecionado = (Usuario)ListSugestoes.SelectedItem;
+
+            if (usuarioSelecionado != null)
+            {
+                List<Postagem> postagensUsuarioSelecionado = ProjetoCodex.Controller.Postagem.ListarPostagens()
+                    .Where(postagem => postagem.Autor == usuarioSelecionado.Nome)
+                    .ToList();
+
+                PostagensSoli novaTela = new PostagensSoli(postagensUsuarioSelecionado);
+                novaTela.Show(); // Isso deveria mostrar a nova janela com as postagens do usuário selecionado
+            }
+        }
 
         private void SolicitarAmizade_Click(object sender, RoutedEventArgs e)
         {

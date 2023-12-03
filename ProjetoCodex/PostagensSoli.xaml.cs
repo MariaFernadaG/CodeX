@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoCodex.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,19 +11,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ProjetoCodex
 {
     /// <summary>
-    /// Interação lógica para TelaAcesso1.xam
+    /// Lógica interna para PostagensSoli.xaml
     /// </summary>
-    public partial class TelaAcesso1 : Page
+    public partial class PostagensSoli : Window
     {
-        public TelaAcesso1()
+        public PostagensSoli(List<Postagem> postagens)
         {
+        
             InitializeComponent();
+            InitializeComponent();
+            ListBoxPostagens.ItemsSource = postagens;
+          
         }
+
+
     }
+   
 }
