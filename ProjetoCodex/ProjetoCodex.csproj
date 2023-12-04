@@ -17,6 +17,7 @@
     <None Remove="BtnVerPubli.png" />
     <None Remove="ConfigButtonOFF.png" />
     <None Remove="ConfigButtonON.png" />
+    <None Remove="DesfAmizadeButton.png" />
     <None Remove="dislikeButton.png" />
     <None Remove="homeButton.png" />
     <None Remove="ImageBotaoEditar.png" />
@@ -53,6 +54,7 @@
     <Resource Include="BtnVerPubli.png" />
     <Resource Include="ConfigButtonOFF.png" />
     <Resource Include="ConfigButtonON.png" />
+    <Resource Include="DesfAmizadeButton.png" />
     <Resource Include="dislikeButton.png" />
     <Resource Include="homeButton.png" />
   </ItemGroup>

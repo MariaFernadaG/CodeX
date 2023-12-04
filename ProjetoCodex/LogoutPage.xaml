@@ -6,9 +6,9 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:ProjetoCodex"
         mc:Ignorable="d"
-        Title="LogoutPage" Height="322" Width="498" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+        Title="LogoutPage" Height="322" Width="498" Background="{x:Null}" WindowStartupLocation="CenterScreen" TextElement.Foreground="{DynamicResource MaterialDesignBody}" WindowStyle="None" AllowsTransparency="True">
     <Grid Margin="0,0,0,-6">
-        <materialDesign:Card>
+        <materialDesign:Card UniformCornerRadius="15" Height="322" VerticalAlignment="Top">
             <Image Margin="64,8,64,91" Source="Logocodex.png" Panel.ZIndex="1"/>
             <materialDesign:Card.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

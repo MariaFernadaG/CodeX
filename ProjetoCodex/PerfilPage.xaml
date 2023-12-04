@@ -100,27 +100,25 @@
                         <ListBox x:Name="listBoxAmigos" Width="300" Height="300" ItemsSource="{Binding Amigos}" d:ItemsSource="{d:SampleData ItemCount=5}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <StackPanel Orientation="Vertical">
+                                    <StackPanel Orientation="Vertical" Cursor="Hand">
                                         <TextBlock Text="{Binding Nome}" FontSize="15" FontFamily="Product Sans" Margin="10,0,10,0" VerticalAlignment="Center" />
                                         <TextBlock Text="{Binding Bio}" FontSize="13" FontStyle="Italic" Margin="10,0,10,0" VerticalAlignment="Center" />
-                                       
-                                        <Button Content="" ToolTip="Desfazer Amizade" Click="DesfazerAmizade_Click" Tag="{Binding Nome}" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="60" Cursor="Hand" >
-                                            <Button.Background>
-                                                <ImageBrush ImageSource="/BtnVerPubli.png" Stretch="Uniform"/>
-                                            </Button.Background>
-                                            
-                                        </Button>
-                                        <Button Content="" ToolTip="Ver Perfil" Click=" VerPerfil_Click" Tag="{Binding Nome}" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="60" Cursor="Hand" >
-                                            <Button.Background>
-                                                <ImageBrush ImageSource="/BtnVerPubli.png" Stretch="Uniform"/>
-                                            </Button.Background>
-
-                                        </Button>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="" ToolTip="Desfazer Amizade" Click="DesfazerAmizade_Click" Tag="{Binding Nome}" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="60" Cursor="Hand" Margin="9 0 0 0">
+                                                <Button.Background>
+                                                    <ImageBrush ImageSource="/DesfAmizadeButton.png" Stretch="Uniform"/>
+                                                </Button.Background>
+                                            </Button>
+                                            <Button Content="" ToolTip="Ver Perfil" Click=" VerPerfil_Click" Tag="{Binding Nome}" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="60" Cursor="Hand" Margin="20 0 0 0">
+                                                <Button.Background>
+                                                    <ImageBrush ImageSource="/BtnVerPubli.png" Stretch="Uniform"/>
+                                                </Button.Background>
+                                            </Button>
+                                        </StackPanel>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-
                     </StackPanel>
                 </materialDesign:DialogHost>
             </materialDesign:Card>

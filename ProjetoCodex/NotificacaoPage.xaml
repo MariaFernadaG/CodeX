@@ -116,22 +116,26 @@
             <materialDesign:Card UniformCornerRadius="15" Background="{DynamicResource MaterialDesignPaper}" Grid.Row="1" Grid.Column="1" Margin="5,0,5,0">
                 <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHost">
                     <StackPanel Cursor="Hand">
-
-                        <ListBox x:Name="ListSNotificacoes"  FontWeight="Bold" Margin="0,130,0,108" Width="500" Height="400" d:ItemsSource="{d:SampleData ItemCount=5}" Cursor="Hand">
+                        <TextBlock Text="Notificações:" FontWeight="Bold" FontSize="13" Margin="50,50,0,5">
+                        </TextBlock>
+                        <ListBox x:Name="ListSNotificacoes"  FontWeight="Bold" Margin="0,30,0,108" Width="500" Height="400" d:ItemsSource="{d:SampleData ItemCount=5}" Cursor="Hand">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel>
-                                        <TextBlock Text="{Binding Mensagem}" Cursor="Hand" FontFamily="Product Sans" FontSize="15"/>
-                                        <Button ToolTip="Aceitar Solicitação" Click="AceitarButton_Click" Cursor="Hand" BorderBrush="{x:Null}" >
-                                            <Button.Background>
-                                                <ImageBrush ImageSource="/AceitarBtn.png" Stretch="Uniform"/>
-                                            </Button.Background>
-                                        </Button>
-                                        <Button ToolTip="Recusar Solicitação" Click="RecusarButton_Click" Cursor="Hand" BorderBrush="{x:Null}" >
-                                            <Button.Background>
-                                                <ImageBrush ImageSource="/NegarBtn.png" Stretch="Uniform"/>
-                                            </Button.Background>
-                                        </Button>
+                                        <TextBlock Text="{Binding Mensagem}" Cursor="Hand" FontFamily="Product Sans" FontSize="16" Margin="0 0 0 10"/>
+                                    
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button ToolTip="Aceitar Solicitação" Click="AceitarButton_Click" Cursor="Hand" BorderBrush="{x:Null}" Height="20" Width="50" >
+                                                <Button.Background>
+                                                    <ImageBrush ImageSource="/AceitarBtn.png" Stretch="Uniform"/>
+                                                </Button.Background>
+                                            </Button>
+                                            <Button ToolTip="Recusar Solicitação" Click="RecusarButton_Click" Cursor="Hand" BorderBrush="{x:Null}" Margin="20 0 0 0" Height="20" Width="50">
+                                                <Button.Background>
+                                                    <ImageBrush ImageSource="/NegarBtn.png" Stretch="Uniform"/>
+                                                </Button.Background>
+                                            </Button>
+                                        </StackPanel>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
