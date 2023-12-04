@@ -97,12 +97,12 @@
                 <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHostRight">
                     <StackPanel Cursor="IBeam" Margin="0 0 0 0" RenderTransformOrigin="0.5,0.5">
                         <TextBlock Text="Amigos:" FontWeight="Bold" FontSize="13" Margin="10,10,0,5" />
-                        <ListBox x:Name="listBoxAmigos" Width="300" Height="300" ItemsSource="{Binding Amigos}">
+                        <ListBox x:Name="listBoxAmigos" Width="300" Height="300" ItemsSource="{Binding Amigos}" d:ItemsSource="{d:SampleData ItemCount=5}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding Nome}" Margin="10,0,10,0" VerticalAlignment="Center" />
-                                        <TextBlock Text="{Binding Bio}"  Margin="-70,30,0,0" VerticalAlignment="Center" />
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock Text="{Binding Nome}" FontSize="15" FontFamily="Product Sans" Margin="10,0,10,0" VerticalAlignment="Center" />
+                                        <TextBlock Text="{Binding Bio}" FontSize="13" FontStyle="Italic" Margin="10,0,10,0" VerticalAlignment="Center" />
 
                                     </StackPanel>
                                 </DataTemplate>

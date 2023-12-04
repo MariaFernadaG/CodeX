@@ -1,4 +1,5 @@
-﻿using ProjetoCodex.Controller;
+﻿using MaterialDesignThemes.Wpf;
+using ProjetoCodex.Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,20 @@ namespace ProjetoCodex
           
         }
 
+        public bool IsDarkTheme { get; set; }
+        private readonly PaletteHelper paletteHelper = new PaletteHelper();
 
+        
+        private void exitApp(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+            DragMove();
+        }
     }
    
 }

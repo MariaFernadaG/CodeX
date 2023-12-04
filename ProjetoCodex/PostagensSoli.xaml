@@ -3,19 +3,42 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:ProjetoCodex"
         mc:Ignorable="d"
-        Title="PostagensSoli" Height="450" Width="800">
-    <Grid>
-        <ListBox  x:Name="ListBoxPostagens" d:ItemsSource="{d:SampleData ItemCount=5}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Autor}" FontWeight="Bold"/>
-                        <TextBlock Text="{Binding Conteudo}" TextWrapping="Wrap" TextAlignment="Justify"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-    </Grid>
+        Title="PostagensSoli" Height="520" Width="780" Background="{x:Null}" WindowStartupLocation="CenterScreen" TextElement.Foreground="{DynamicResource MaterialDesignBody}" WindowStyle="None" AllowsTransparency="True">
+
+    <materialDesign:Card UniformCornerRadius="15" Background="{DynamicResource MaterialDesignPaper}">
+        <Grid Background="{DynamicResource PrimaryHueMidBrush}" Cursor="Hand">
+            <!-- Barra Horizontal -->
+            <Border Height="200" Background="#FFBF0BD4" VerticalAlignment="Top">
+                <TextBlock Text="PUBLICAÇÕES" FontSize="25" FontFamily="Product Sans" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,25,0,0"/>
+            </Border>
+
+            <StackPanel Margin="0 0 0 0"  Width="764">
+                <Button x:Name="btn_exit" ToolTip="Voltar para o CodeX" Content="Voltar" Click="exitApp"
+                        HorizontalAlignment="Right" Margin="0 20 20 0" Background="#FF6D05DF" materialDesign:ButtonAssist.CornerRadius="15" BorderBrush="{x:Null}"/>
+            </StackPanel>
+
+            <!-- Conteúdo -->
+            <materialDesign:Card Background="{DynamicResource MaterialDesignPaper}" Margin="10,78,10,10" UniformCornerRadius="15">
+                <Grid>
+                    <materialDesign:DialogHost CloseOnClickAway="True">
+                        <StackPanel>
+                            <ListBox x:Name="ListBoxPostagens" d:ItemsSource="{d:SampleData ItemCount=5}" Height="603">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Autor}" FontWeight="Bold"/>
+                                            <TextBlock Text="{Binding Conteudo}" TextWrapping="Wrap" TextAlignment="Justify"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                    </materialDesign:DialogHost>
+                </Grid>
+            </materialDesign:Card>
+        </Grid>
+    </materialDesign:Card>
 </Window>

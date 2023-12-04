@@ -129,7 +129,7 @@
 
             <materialDesign:Card UniformCornerRadius="15" Background="{DynamicResource MaterialDesignPaper}" Grid.Row="1" Grid.Column="2">
                 <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHostRight">
-                    <StackPanel Cursor="IBeam" Margin="0 0 0 0" RenderTransformOrigin="0.5,0.5">
+                    <StackPanel Margin="0 0 0 0" RenderTransformOrigin="0.5,0.5">
                         <TextBlock Text="Sugestões de amizades:" FontWeight="Bold" FontSize="13" Margin="10,10,0,5" />
                         <ListBox x:Name="ListSugestoes" ItemsSource="{Binding Usuarios}" Height="264" d:ItemsSource="{d:SampleData ItemCount=5}">
                             <ListBox.ItemTemplate>
@@ -145,14 +145,14 @@
                                             <TextBlock Text="{Binding Bio}" Margin="10,0,0,0" VerticalAlignment="Bottom" TextWrapping="Wrap" FontSize="11" FontStyle="Italic" Grid.Row="1"/>
                                         </Grid>
 
-                                        <Button Content="" ToolTip="Solicitar Amizade" Click="SolicitarAmizade_Click" Tag="{Binding Nome}" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="86" Cursor="Hand" >
+                                        <Button Content="" ToolTip="Solicitar Amizade" Click="SolicitarAmizade_Click" Margin="10 0 0 0" Tag="{Binding Nome}" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="67" Cursor="Hand" >
                                             <Button.Background>
                                                 <ImageBrush ImageSource="/AddButton.png" Stretch="Uniform"/>
                                             </Button.Background>
                                         </Button>
-                                        <Button Content="" ToolTip="Ver Postagens" Click="VerPerfil_Click" Tag="{Binding Nome}" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="86" Cursor="Hand" >
+                                        <Button Content="" ToolTip="Ver Postagens" Click="VerPerfil_Click" Tag="{Binding Nome}" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="60" Cursor="Hand" >
                                             <Button.Background>
-                                                <ImageBrush ImageSource="/AddButton.png" Stretch="Uniform"/>
+                                                <ImageBrush ImageSource="/BtnVerPubli.png" Stretch="Uniform"/>
                                             </Button.Background>
                                         </Button>
                                     </StackPanel>
@@ -168,7 +168,7 @@
             <materialDesign:Card UniformCornerRadius="15" Background="{DynamicResource MaterialDesignPaper}" Grid.Row="1" Grid.Column="1" Margin="5,0,5,0">
                 <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHost">
                     <StackPanel Cursor="Hand">
-                        <ListBox x:Name="listaPostagens" Margin="0 60 0 0" Height="374" Width="554" SelectionChanged="listaPostagens_SelectionChanged" d:ItemsSource="{d:SampleData ItemCount=5}" ScrollViewer.CanContentScroll="False">
+                        <ListBox x:Name="listaPostagens" Margin="0 60 0 0" Height="374" Width="554" d:ItemsSource="{d:SampleData ItemCount=5}" ScrollViewer.CanContentScroll="False">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <ScrollViewer VerticalScrollBarVisibility="Auto" PanningMode="Both" PanningDeceleration="0.5" PanningRatio="0.5">

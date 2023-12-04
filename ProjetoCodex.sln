@@ -5,6 +5,11 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjetoCodex", "ProjetoCodex\ProjetoCodex.csproj", "{EA884151-C0EE-42B2-ABDE-9A856650F696}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{35465E69-C13D-46D8-82C3-6257AC0EC924}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\BtnVerPubli.png = ..\..\..\BtnVerPubli.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
