@@ -196,12 +196,9 @@
                                                     </Button.Background>
                                                 </Button>
 
-                                                <Button Content="Excluir Postagem" Click="ExcluirPostagemButton_Click" Cursor="Hand" Margin="10 0 0 0" materialDesign:ButtonAssist.CornerRadius="13">
+                                                <Button ToolTip="Excluir Postagem" Content="" Click="ExcluirPostagemButton_Click" Cursor="Hand" Margin="10 0 0 0" BorderBrush="{x:Null}" Height="40" Width="60">
                                                     <Button.Background>
-                                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                                            <GradientStop Color="#FFBF0BD4"/>
-                                                            <GradientStop Color="#FF6D05DF" Offset="1"/>
-                                                        </LinearGradientBrush>
+                                                        <ImageBrush ImageSource="/NegarBtn.png" Stretch="Uniform"/>
                                                     </Button.Background>
                                                 </Button>
                                             </StackPanel>
