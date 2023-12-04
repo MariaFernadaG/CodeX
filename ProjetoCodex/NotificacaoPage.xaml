@@ -117,7 +117,7 @@
                 <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHost">
                     <StackPanel Cursor="Hand">
 
-                        <ListBox x:Name="ListSNotificacoes" Margin="0,130,0,108" Width="500" Height="400" d:ItemsSource="{d:SampleData ItemCount=5}" Cursor="Hand">
+                        <ListBox x:Name="ListSNotificacoes"  FontWeight="Bold" Margin="0,130,0,108" Width="500" Height="400" d:ItemsSource="{d:SampleData ItemCount=5}" Cursor="Hand">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel>

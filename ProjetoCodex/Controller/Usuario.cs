@@ -61,9 +61,19 @@ namespace ProjetoCodex.Controller
             }
         }
 
+        public void DesfazerAmizade(Usuario amigo)
+        {
+            if (Amigos.Contains(amigo))
+            {
+                Amigos.Remove(amigo);
 
-      
-      
+               
+                
+            }
+        }
+
+
+
 
         public void MostrarNotificacoesPublico()
         {

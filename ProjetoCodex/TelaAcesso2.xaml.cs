@@ -332,6 +332,7 @@ namespace ProjetoCodex
                 // Adicione o comentário à listbox
                 listaPostagens.Items.Add(comentarioTextBox.Text);
                 comentarioTextBox.Text = string.Empty;
+               
             }
         }
 

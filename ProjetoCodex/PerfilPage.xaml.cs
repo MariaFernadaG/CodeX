@@ -30,6 +30,8 @@ namespace ProjetoCodex
         public PerfilPage()
         {
             InitializeComponent();
+            
+
             txtEmail.Text = Usuario.UsuarioLogado.Email;
             txtNome.Text = Usuario.UsuarioLogado.Nome;
            
@@ -50,6 +52,41 @@ namespace ProjetoCodex
             AtualizarListaAmigos();
 
         }
+        private void DesfazerAmizade_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Tem certeza que deseja desfazer a amizade?", "Confirmação", MessageBoxButton.YesNo);
+
+           
+            if (result == MessageBoxResult.Yes)
+            {
+                if (listBoxAmigos.SelectedItem != null && listBoxAmigos.SelectedItem is Usuario amigoSelecionado)
+                {
+                   
+                    Usuario.UsuarioLogado.DesfazerAmizade(amigoSelecionado);
+                    AtualizarListaAmigos();
+                }
+            }
+            
+        
+            
+        }
+        private void VerPerfil_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario usuarioSelecionado = (Usuario)listBoxAmigos.SelectedItem;
+
+            if (usuarioSelecionado != null)
+            {
+                List<Postagem> postagensUsuarioSelecionado = ProjetoCodex.Controller.Postagem.ListarPostagens()
+                    .Where(postagem => postagem.Autor == usuarioSelecionado.Nome)
+                    .ToList();
+
+                PostagensSoli novaTela = new PostagensSoli(postagensUsuarioSelecionado);
+                novaTela.Show(); 
+            }
+        }
+
+
+
         private void UsuarioDesativouConta(object sender, EventArgs e)
         {
             AtualizarListaAmigos();

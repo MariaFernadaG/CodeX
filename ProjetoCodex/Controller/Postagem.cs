@@ -14,6 +14,12 @@ namespace ProjetoCodex.Controller
 
         public ObservableCollection<Usuario> LikedByUsers { get; set; } = new ObservableCollection<Usuario>();
         public ObservableCollection<Usuario> DislikedByUsers { get; set; } = new ObservableCollection<Usuario>();
+        public event PropertyChangedEventHandler PropertyChangedPostagem; // Renomeando para evitar ambiguidade
+
+        protected virtual void OnPropertyChangedPostagem(string propertyName)
+        {
+            PropertyChangedPostagem?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         public class Comentario
         {
@@ -95,6 +101,7 @@ namespace ProjetoCodex.Controller
         public void AdicionarComentario(string nome, string texto)
         {
             Comentarios.Add(new Comentario { Autor = nome, Texto = texto });
+
             OnPostagensChanged?.Invoke();
 
         }

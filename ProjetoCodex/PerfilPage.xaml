@@ -103,7 +103,19 @@
                                     <StackPanel Orientation="Vertical">
                                         <TextBlock Text="{Binding Nome}" FontSize="15" FontFamily="Product Sans" Margin="10,0,10,0" VerticalAlignment="Center" />
                                         <TextBlock Text="{Binding Bio}" FontSize="13" FontStyle="Italic" Margin="10,0,10,0" VerticalAlignment="Center" />
-                                        
+                                       
+                                        <Button Content="" ToolTip="Desfazer Amizade" Click="DesfazerAmizade_Click" Tag="{Binding Nome}" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="60" Cursor="Hand" >
+                                            <Button.Background>
+                                                <ImageBrush ImageSource="/BtnVerPubli.png" Stretch="Uniform"/>
+                                            </Button.Background>
+                                            
+                                        </Button>
+                                        <Button Content="" ToolTip="Ver Perfil" Click=" VerPerfil_Click" Tag="{Binding Nome}" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="60" Cursor="Hand" >
+                                            <Button.Background>
+                                                <ImageBrush ImageSource="/BtnVerPubli.png" Stretch="Uniform"/>
+                                            </Button.Background>
+
+                                        </Button>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
